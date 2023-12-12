@@ -8,8 +8,8 @@
       {
         //"ConfigId": "1300000000001", // 默认库标识-禁止修改
         "DbType": "MySql", // MySql、SqlServer、Sqlite、Oracle、PostgreSQL、Dm、Kdbndp、Oscar、MySqlConnector、Access、OpenGauss、QuestDB、HG、ClickHouse、GBase、Odbc、Custom
-        //"ConnectionString": "DataSource=./Miigo.Admin.db", //  Sqlite库连接字符串
-        "ConnectionString": "Data Source=localhost;Database=miigo_admin;User ID=root;Password=123456;pooling=true;port=3306;sslmode=none;CharSet=utf8;Convert Zero Datetime=True;Allow Zero Datetime=True;",
+        "ConnectionString": "DataSource=./Miigo.Admin.db", //  Sqlite库连接字符串
+        //"ConnectionString": "Data Source=localhost;Database=miigo_admin;User ID=root;Password=123456;pooling=true;port=3306;sslmode=none;CharSet=utf8;Convert Zero Datetime=True;Allow Zero Datetime=True;",
         "DbSettings": {
           "EnableInitDb": true, // 启用库初始化
           "EnableDiffLog": false, // 启用库表差异日志
