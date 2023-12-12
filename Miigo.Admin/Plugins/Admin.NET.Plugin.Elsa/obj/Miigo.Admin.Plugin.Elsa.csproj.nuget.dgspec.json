@@ -1,0 +1,262 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\01.Programs\\ASP.NetCore\\Miigo.Admin\\Miigo.Admin\\Plugins\\Admin.NET.Plugin.Elsa\\Miigo.Admin.Plugin.Elsa.csproj": {}
+  },
+  "projects": {
+    "E:\\01.Programs\\ASP.NetCore\\Miigo.Admin\\Miigo.Admin\\Miigo.Admin.Core\\Miigo.Admin.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\01.Programs\\ASP.NetCore\\Miigo.Admin\\Miigo.Admin\\Miigo.Admin.Core\\Miigo.Admin.Core.csproj",
+        "projectName": "Miigo.Admin.Core",
+        "projectPath": "E:\\01.Programs\\ASP.NetCore\\Miigo.Admin\\Miigo.Admin\\Miigo.Admin.Core\\Miigo.Admin.Core.csproj",
+        "packagesPath": "D:\\.nuget\\packages",
+        "outputPath": "E:\\01.Programs\\ASP.NetCore\\Miigo.Admin\\Miigo.Admin\\Miigo.Admin.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://www.nuget.org/api/v2/": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "AlibabaCloud.SDK.Dysmsapi20170525": {
+              "target": "Package",
+              "version": "[2.0.24, )"
+            },
+            "AngleSharp": {
+              "target": "Package",
+              "version": "[1.0.6, )"
+            },
+            "AspNet.Security.OAuth.Gitee": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "AspNet.Security.OAuth.Weixin": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "AspNetCoreRateLimit": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "AspectCore.Extensions.Reflection": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            },
+            "FluentEmail.Smtp": {
+              "target": "Package",
+              "version": "[3.0.2, )"
+            },
+            "Furion.Extras.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[4.9.1, )"
+            },
+            "Furion.Extras.ObjectMapper.Mapster": {
+              "target": "Package",
+              "version": "[4.9.1, )"
+            },
+            "Furion.Pure": {
+              "target": "Package",
+              "version": "[4.9.1, )"
+            },
+            "IPTools.China": {
+              "target": "Package",
+              "version": "[1.6.0, )"
+            },
+            "Lazy.Captcha.Core": {
+              "target": "Package",
+              "version": "[2.0.6, )"
+            },
+            "Magicodes.IE.Excel": {
+              "target": "Package",
+              "version": "[2.7.4.5, )"
+            },
+            "Magicodes.IE.Pdf": {
+              "target": "Package",
+              "version": "[2.7.4.5, )"
+            },
+            "Microsoft.AspNetCore.DataProtection.StackExchangeRedis": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.AspNetCore.SignalR.StackExchangeRedis": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "NEST": {
+              "target": "Package",
+              "version": "[7.17.5, )"
+            },
+            "NewLife.Redis": {
+              "target": "Package",
+              "version": "[5.5.2023.1102, )"
+            },
+            "OnceMi.AspNetCore.OSS": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "SKIT.FlurlHttpClient.Wechat.Api": {
+              "target": "Package",
+              "version": "[2.34.0, )"
+            },
+            "SKIT.FlurlHttpClient.Wechat.TenpayV3": {
+              "target": "Package",
+              "version": "[2.20.1, )"
+            },
+            "SqlSugarCore": {
+              "target": "Package",
+              "version": "[5.1.4.115, )"
+            },
+            "System.Linq.Dynamic.Core": {
+              "target": "Package",
+              "version": "[1.3.5, )"
+            },
+            "System.Net.NameResolution": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.Net.Primitives": {
+              "target": "Package",
+              "version": "[4.3.1, )"
+            },
+            "UAParser": {
+              "target": "Package",
+              "version": "[3.1.47, )"
+            },
+            "Yitter.IdGenerator": {
+              "target": "Package",
+              "version": "[1.0.14, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\01.Programs\\ASP.NetCore\\Miigo.Admin\\Miigo.Admin\\Plugins\\Admin.NET.Plugin.Elsa\\Miigo.Admin.Plugin.Elsa.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\01.Programs\\ASP.NetCore\\Miigo.Admin\\Miigo.Admin\\Plugins\\Admin.NET.Plugin.Elsa\\Miigo.Admin.Plugin.Elsa.csproj",
+        "projectName": "Miigo.Admin.Plugin.Elsa",
+        "projectPath": "E:\\01.Programs\\ASP.NetCore\\Miigo.Admin\\Miigo.Admin\\Plugins\\Admin.NET.Plugin.Elsa\\Miigo.Admin.Plugin.Elsa.csproj",
+        "packagesPath": "D:\\.nuget\\packages",
+        "outputPath": "E:\\01.Programs\\ASP.NetCore\\Miigo.Admin\\Miigo.Admin\\Plugins\\Admin.NET.Plugin.Elsa\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://www.nuget.org/api/v2/": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "E:\\01.Programs\\ASP.NetCore\\Miigo.Admin\\Miigo.Admin\\Miigo.Admin.Core\\Miigo.Admin.Core.csproj": {
+                "projectPath": "E:\\01.Programs\\ASP.NetCore\\Miigo.Admin\\Miigo.Admin\\Miigo.Admin.Core\\Miigo.Admin.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Elsa": {
+              "target": "Package",
+              "version": "[2.13.0, )"
+            },
+            "Elsa.Activities.Http": {
+              "target": "Package",
+              "version": "[2.13.0, )"
+            },
+            "Elsa.Designer.Components.Web": {
+              "target": "Package",
+              "version": "[2.13.0, )"
+            },
+            "Elsa.Server.Api": {
+              "target": "Package",
+              "version": "[2.13.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

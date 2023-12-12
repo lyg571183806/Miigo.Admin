@@ -1,0 +1,42 @@
+{
+  "$schema": "https://gitee.com/dotnetchina/Furion/raw/v4/schemas/v4/furion-schema.json",
+
+  "SpecificationDocumentSettings": {
+    "DocumentTitle": "Miigo.Admin",
+    "GroupOpenApiInfos": [
+      {
+        "Group": "Default",
+        "Title": "Miigo.Admin",
+        "Description": "前后端分离架构(.NET8/Vue3)<br/>",
+        "Version": "1.0.0"
+        //"TermsOfService": "https://dotnetchina.gitee.io/",
+        //"Contact": {
+        //  "Name": "",
+        //  "Email": "",
+        //  "Url": "https://gitee.com/"
+        //}
+      },
+      {
+        "Group": "All Groups",
+        "Title": "所有接口",
+        "Description": "前后端分离架构(.NET8/Vue3)<br/>",
+        "Version": "1.0.0",
+        //"TermsOfService": "https://dotnetchina.gitee.io/furion/",
+        //"Contact": {
+        //  "Name": "zuohuaijun",
+        //  "Email": "515096995@qq.com",
+        //  "Url": "https://gitee.com/zuohuaijun/Admin.NET"
+        //}
+      }
+    ],
+    "DefaultGroupName": "Default", // 默认分组名
+    "DocExpansionState": "List", // List、Full、None
+    "EnableAllGroups": true,
+    "LoginInfo": {
+      "Enabled": false, // 是否开启Swagger登录
+      "CheckUrl": "/swagger/checkUrl",
+      "SubmitUrl": "/swagger/submitUrl"
+    },
+    "EnumToNumber": true // 枚举类型生成值类型
+  }
+}
