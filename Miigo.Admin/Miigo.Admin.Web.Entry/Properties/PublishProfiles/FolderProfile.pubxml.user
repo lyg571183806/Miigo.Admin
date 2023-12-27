@@ -4,8 +4,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
   <PropertyGroup>
-    <_PublishTargetUrl>E:\01.Programs\ASP.NetCore\Admin.NET-v2\Admin.NET\Admin.NET.Web.Entry\bin\Release\net8.0\publish\</_PublishTargetUrl>
-    <History>True|2023-11-30T09:00:38.1424854Z;False|2023-11-30T16:58:06.3769450+08:00;False|2023-11-30T16:53:07.5690811+08:00;False|2023-11-30T16:52:13.7437059+08:00;False|2023-11-30T16:50:52.7359560+08:00;False|2023-11-30T16:50:29.9433716+08:00;True|2023-11-30T16:38:43.0096104+08:00;False|2023-11-30T16:36:45.1483262+08:00;False|2023-11-30T16:32:11.0641595+08:00;</History>
+    <_PublishTargetUrl>E:\01.Programs\ASP.NetCore\Miigo.Admin\Miigo.Admin\Miigo.Admin.Web.Entry\bin\Release\net8.0\publish\</_PublishTargetUrl>
+    <History>True|2023-12-18T08:26:25.0306254Z;True|2023-12-18T16:09:01.1547962+08:00;True|2023-12-18T15:56:21.5391049+08:00;True|2023-11-30T17:00:38.1424854+08:00;False|2023-11-30T16:58:06.3769450+08:00;False|2023-11-30T16:53:07.5690811+08:00;False|2023-11-30T16:52:13.7437059+08:00;False|2023-11-30T16:50:52.7359560+08:00;False|2023-11-30T16:50:29.9433716+08:00;True|2023-11-30T16:38:43.0096104+08:00;False|2023-11-30T16:36:45.1483262+08:00;False|2023-11-30T16:32:11.0641595+08:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

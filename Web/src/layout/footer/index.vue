@@ -1,8 +1,7 @@
 <template>
 	<div class="layout-footer pb15">
 		<div class="layout-footer-warp">
-			<div>Miigo.Admin</div>
-			<div class="mt5">Copyright © 2023 Miigo All rights reserved.</div>
+			<div class="mt5">Miigo Admin Copyright © 2023 Miigo All rights reserved.</div>
 		</div>
 	</div>
 </template>

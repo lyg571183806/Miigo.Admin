@@ -10,6 +10,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miigo.Admin.Web.Core", "Miigo.Admin.Web.Core\Miigo.Admin.Web.Core.csproj", "{8A42A864-A69E-40F7-975E-F2FA36E7DFEE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Miigo.Admin.Web.Entry", "Miigo.Admin.Web.Entry\Miigo.Admin.Web.Entry.csproj", "{11EA630B-4600-4236-A117-CE6C6CD67586}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C3F5AEC5-ACEE-4109-94E3-3F981DC18268} = {C3F5AEC5-ACEE-4109-94E3-3F981DC18268}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{662E0B8E-F23E-4C7D-80BD-CAA5707503CC}"
 	ProjectSection(SolutionItems) = preProject

@@ -8,3 +8,7 @@
 /Miigo.Admin/Miigo.Admin.Web.Entry/logs
 /Miigo.Admin/Miigo.Admin.Core/obj
 /Miigo.Admin/Miigo.Admin.Core/bin
+/Miigo.Admin/Plugins/Admin.NET.Plugin.GoView/obj
+/Miigo.Admin/Plugins/Admin.NET.Plugin.GoView/bin
+/Miigo.Admin/Plugins/Admin.NET.Plugin.Elsa/bin
+/Miigo.Admin/Plugins/Admin.NET.Plugin.Elsa/obj
