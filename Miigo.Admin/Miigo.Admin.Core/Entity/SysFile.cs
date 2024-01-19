@@ -1,73 +1,75 @@
-
-namespace Miigo.Admin.Core;
+﻿namespace Miigo.Admin.Core;
 
 /// <summary>
 /// 系统文件表
 /// </summary>
-[SugarTable(null, "系统文件表")]
-[SysTable]
-public class SysFile : EntityBase
+[SugarTable("SysFile","系统文件表")]
+public class SysFile  : EntityTenant
 {
     /// <summary>
     /// 提供者
     /// </summary>
-    [SugarColumn(ColumnDescription = "提供者", Length = 128)]
-    [MaxLength(128)]
+    [SugarColumn(ColumnName = "Provider", ColumnDescription = "提供者", Length = 128)]
     public string? Provider { get; set; }
-
+    
     /// <summary>
     /// 仓储名称
     /// </summary>
-    [SugarColumn(ColumnDescription = "仓储名称", Length = 128)]
-    [MaxLength(128)]
+    [SugarColumn(ColumnName = "BucketName", ColumnDescription = "仓储名称", Length = 128)]
     public string? BucketName { get; set; }
-
+    
     /// <summary>
-    /// 文件名称（源文件名）
+    /// 文件名称
     /// </summary>
-    [SugarColumn(ColumnDescription = "文件名称", Length = 128)]
-    [MaxLength(128)]
+    [SugarColumn(ColumnName = "FileName", ColumnDescription = "文件名称", Length = 128)]
     public string? FileName { get; set; }
-
+    
     /// <summary>
     /// 文件后缀
     /// </summary>
-    [SugarColumn(ColumnDescription = "文件后缀", Length = 16)]
-    [MaxLength(16)]
+    [SugarColumn(ColumnName = "Suffix", ColumnDescription = "文件后缀", Length = 16)]
     public string? Suffix { get; set; }
-
+    
     /// <summary>
     /// 存储路径
     /// </summary>
-    [SugarColumn(ColumnDescription = "存储路径", Length = 128)]
-    [MaxLength(128)]
+    [SugarColumn(ColumnName = "FilePath", ColumnDescription = "存储路径", Length = 128)]
     public string? FilePath { get; set; }
-
+    
     /// <summary>
     /// 文件大小KB
     /// </summary>
-    [SugarColumn(ColumnDescription = "文件大小KB", Length = 16)]
-    [MaxLength(16)]
+    [SugarColumn(ColumnName = "SizeKb", ColumnDescription = "文件大小KB", Length = 16)]
     public string? SizeKb { get; set; }
-
+    
     /// <summary>
-    /// 文件大小信息-计算后的
+    /// 文件大小信息
     /// </summary>
-    [SugarColumn(ColumnDescription = "文件大小信息", Length = 64)]
-    [MaxLength(64)]
+    [SugarColumn(ColumnName = "SizeInfo", ColumnDescription = "文件大小信息", Length = 64)]
     public string? SizeInfo { get; set; }
-
+    
     /// <summary>
-    /// 外链地址-OSS上传后生成外链地址方便前端预览
+    /// 外链地址
     /// </summary>
-    [SugarColumn(ColumnDescription = "外链地址", Length = 512)]
-    [MaxLength(512)]
+    [SugarColumn(ColumnName = "Url", ColumnDescription = "外链地址", Length = 512)]
     public string? Url { get; set; }
-
+    
     /// <summary>
     /// 文件MD5
     /// </summary>
-    [SugarColumn(ColumnDescription = "文件MD5", Length = 128)]
-    [MaxLength(128)]
+    [SugarColumn(ColumnName = "FileMd5", ColumnDescription = "文件MD5", Length = 128)]
     public string? FileMd5 { get; set; }
+    
+    /// <summary>
+    /// 创建者姓名
+    /// </summary>
+    [SugarColumn(ColumnName = "CreateUserName", ColumnDescription = "创建者姓名", Length = 64)]
+    public string? CreateUserName { get; set; }
+    
+    /// <summary>
+    /// 修改者姓名
+    /// </summary>
+    [SugarColumn(ColumnName = "UpdateUserName", ColumnDescription = "修改者姓名", Length = 64)]
+    public string? UpdateUserName { get; set; }
+    
 }

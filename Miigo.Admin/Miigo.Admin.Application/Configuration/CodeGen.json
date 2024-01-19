@@ -14,6 +14,6 @@
       //"BaseId": [ "Id" ]
     },
     "FrontRootPath": "Web", // 前端项目根目录
-    "BackendApplicationNamespaces": [ "Miigo.Admin.Application", "Miigo.Admin.Application2" ] // 后端生成到的项目
+    "BackendApplicationNamespaces": [ "Miigo.Admin.Application", "Miigo.Admin.Core" ] // 后端生成到的项目
   }
 }

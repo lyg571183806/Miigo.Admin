@@ -18,7 +18,8 @@
 					</el-button-group>
 				</el-form-item>
 				<el-form-item>
-					<el-button type="primary" icon="ele-Plus" @click="openUploadDialog" v-auth="'sysFile:uploadFile'"> 上传 </el-button>
+					<!-- <el-button type="primary" icon="ele-Plus" @click="openUploadDialog" v-auth="'sysFile:uploadFile'"> 上传 </el-button> -->
+					<el-button type="primary" icon="ele-Plus" @click="openMultiUploadDialog" v-auth="'sysFile:uploadFile'"> 上传 </el-button>
 				</el-form-item>
 			</el-form>
 		</el-card>
@@ -84,13 +85,18 @@
 				</div>
 			</template>
 			<div>
-				<el-upload ref="uploadRef" drag :auto-upload="false" :limit="1" :file-list="state.fileList" action="" :on-change="handleChange" accept=".jpg,.png,.bmp,.gif,.txt,.pdf,.xlsx,.docx">
+				<el-upload ref="uploadRef" drag :auto-upload="false" :multiple="state.multipleFile" :file-list="state.fileList" action="" :on-change="handleChange" accept=".jpg,.png,.bmp,.gif,.txt,.pdf,.xlsx,.docx">
 					<el-icon class="el-icon--upload">
 						<ele-UploadFilled />
 					</el-icon>
 					<div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
 					<template #tip>
 						<div class="el-upload__tip">请上传大小不超过 10MB 的文件</div>
+						<div style="display: flex;">
+							<el-select placeholder="分类" clearable filterable></el-select>
+							<el-select placeholder="专辑" clearable filterable></el-select>
+							<el-select placeholder="标签" clearable filterable multiple></el-select>
+						</div>
 					</template>
 				</el-upload>
 			</div>
@@ -160,6 +166,7 @@ const state = reactive({
 	pdfUrl: '',
 	fileName: '',
 	previewList: [] as string[],
+	multipleFile: false, //多文件上传
 });
 
 onMounted(async () => {
@@ -190,6 +197,13 @@ const resetQuery = () => {
 // 打开上传页面
 const openUploadDialog = () => {
 	state.fileList = [];
+	state.multipleFile = false;
+	state.dialogUploadVisible = true;
+};
+//多文件上传
+const openMultiUploadDialog = () => {
+	state.fileList = [];
+	state.multipleFile = true;
 	state.dialogUploadVisible = true;
 };
 
@@ -201,7 +215,13 @@ const handleChange = (file: any, fileList: []) => {
 // 上传
 const uploadFile = async () => {
 	if (state.fileList.length < 1) return;
-	await getAPI(SysFileApi).apiSysFileUploadFilePostForm(state.fileList[0].raw);
+	if (state.multipleFile) {
+		let files = state.fileList.map((x:any)=>x.raw);
+		await getAPI(SysFileApi).apiSysFileUploadFilesPostForm(files);
+	}
+	else{
+		await getAPI(SysFileApi).apiSysFileUploadFilePostForm(state.fileList[0].raw);
+	}
 	handleQuery();
 	ElMessage.success('上传成功');
 	state.dialogUploadVisible = false;
@@ -282,3 +302,9 @@ const renderedHandler = () => {};
 // 文件渲染失败
 const errorHandler = () => {};
 </script>
+
+<style>
+	.el-select{
+		margin: 2px;
+	}
+</style>

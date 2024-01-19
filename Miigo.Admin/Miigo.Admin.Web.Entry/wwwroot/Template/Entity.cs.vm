@@ -1,4 +1,4 @@
-﻿@if(@Model.BaseClassName!=""){
+﻿@if(@Model.BaseClassName!="" && @Model.NameSpace != "Miigo.Admin.Core"){
 @:using Miigo.Admin.Core;
 }
 namespace @Model.NameSpace;

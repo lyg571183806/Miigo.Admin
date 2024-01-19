@@ -231,7 +231,7 @@ public class SysDatabaseService : IDynamicApiController, ITransient
         var tContent = File.ReadAllText(templatePath);
         var tResult = _viewEngine.RunCompileFromCached(tContent, new
         {
-            NameSpace = $"{input.Position}.Entity",
+            NameSpace = $"{input.Position}",
             input.TableName,
             input.EntityName,
             BaseClassName = string.IsNullOrWhiteSpace(input.BaseClassName) ? "" : $" : {input.BaseClassName}",
