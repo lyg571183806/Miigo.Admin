@@ -23,23 +23,23 @@ public class BizAlbumService : IDynamicApiController, ITransient
     {
         var query= _rep.AsQueryable()
             .WhereIF(!string.IsNullOrWhiteSpace(input.SearchKey), u =>
-                u.name.Contains(input.SearchKey.Trim())
-                || u.desc.Contains(input.SearchKey.Trim())
-                || u.logo.Contains(input.SearchKey.Trim())
+                u.Name.Contains(input.SearchKey.Trim())
+                || u.Desc.Contains(input.SearchKey.Trim())
+                || u.Logo.Contains(input.SearchKey.Trim())
                 || u.CreateUserName.Contains(input.SearchKey.Trim())
                 || u.UpdateUserName.Contains(input.SearchKey.Trim())
             )
-            .WhereIF(!string.IsNullOrWhiteSpace(input.name), u => u.name.Contains(input.name.Trim()))
-            .WhereIF(!string.IsNullOrWhiteSpace(input.desc), u => u.desc.Contains(input.desc.Trim()))
-            .WhereIF(!string.IsNullOrWhiteSpace(input.logo), u => u.logo.Contains(input.logo.Trim()))
+            .WhereIF(!string.IsNullOrWhiteSpace(input.name), u => u.Name.Contains(input.name.Trim()))
+            .WhereIF(!string.IsNullOrWhiteSpace(input.desc), u => u.Desc.Contains(input.desc.Trim()))
+            .WhereIF(!string.IsNullOrWhiteSpace(input.logo), u => u.Logo.Contains(input.logo.Trim()))
             .WhereIF(!string.IsNullOrWhiteSpace(input.CreateUserName), u => u.CreateUserName.Contains(input.CreateUserName.Trim()))
             .WhereIF(!string.IsNullOrWhiteSpace(input.UpdateUserName), u => u.UpdateUserName.Contains(input.UpdateUserName.Trim()))
             //处理外键和TreeSelector相关字段的连接
             .Select((u)=> new BizAlbumOutput{
                 Id = u.Id, 
-                name = u.name, 
-                desc = u.desc, 
-                logo = u.logo, 
+                name = u.Name, 
+                desc = u.Desc, 
+                logo = u.Logo, 
                 CreateUserName = u.CreateUserName, 
                 UpdateUserName = u.UpdateUserName, 
             })

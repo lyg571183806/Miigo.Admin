@@ -9,20 +9,20 @@ public class BizAlbum  : EntityTenant
     /// <summary>
     /// 名称
     /// </summary>
-    [SugarColumn(ColumnName = "name", ColumnDescription = "名称", Length = 32)]
-    public string? name { get; set; }
+    [SugarColumn(ColumnName = "Name", ColumnDescription = "名称", Length = 32)]
+    public string? Name { get; set; }
     
     /// <summary>
     /// 描述
     /// </summary>
-    [SugarColumn(ColumnName = "desc", ColumnDescription = "描述", Length = 256)]
-    public string? desc { get; set; }
+    [SugarColumn(ColumnName = "Desc", ColumnDescription = "描述", Length = 256)]
+    public string? Desc { get; set; }
     
     /// <summary>
     /// 图标
     /// </summary>
-    [SugarColumn(ColumnName = "logo", ColumnDescription = "图标", Length = 32)]
-    public string? logo { get; set; }
+    [SugarColumn(ColumnName = "Logo", ColumnDescription = "图标", Length = 32)]
+    public string? Logo { get; set; }
     
     /// <summary>
     /// 创建者姓名

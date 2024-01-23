@@ -73,7 +73,7 @@ onMounted(async () => {
 const openDialog = (row: any) => {
 	state.ruleForm.configId = row.configId;
 	state.ruleForm.tableName = row.tableName;
-	state.ruleForm.baseClassName = 'EntityBase';	
+	state.ruleForm.baseClassName = 'EntityTenant';	
 	state.isShowDialog = true;
 };
 
