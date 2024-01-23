@@ -1,4 +1,4 @@
-﻿using @(@Model.NameSpace).Const;
+﻿
 @{
     string joinTableName = "u";
     Dictionary<string, int> definedObjects = new Dictionary<string, int>();
@@ -9,11 +9,11 @@
         }
     }
 }
-namespace @Model.NameSpace;
+namespace @(@Model.NameSpace).Service;
 /// <summary>
 /// @(@Model.BusName)服务
 /// </summary>
-[ApiDescriptionSettings(@(@Model.ProjectLastName)Const.GroupName, Order = 100)]
+[ApiDescriptionSettings(Order = 100)]
 public class @(@Model.ClassName)Service : IDynamicApiController, ITransient
 {
     private readonly SqlSugarRepository<@(@Model.ClassName)> _rep;

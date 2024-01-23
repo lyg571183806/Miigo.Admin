@@ -13,27 +13,21 @@
   <div class="@(@Model.LowerClassName)-container">
     <el-card shadow="hover" :body-style="{ paddingBottom: '0' }">
       @if(Model.QueryWhetherList.Count > 0){
-      @:<el-form :model="queryParams" ref="queryForm" labelWidth="90">
-        @:<el-row>
+      @:<el-form :model="queryParams" ref="queryForm" :inline="true">
           @if(haveLikeCdt){
-          @:<el-col :xs="24" :sm="12" :md="12" :lg="8" :xl="4" class="mb10">
             @:<el-form-item label="关键字">
               @:<el-input v-model="queryParams.searchKey" clearable="" placeholder="请输入模糊查询关键字"/>
-              @:
             </el-form-item>
-          </el-col>
           }
+          @:
           foreach (var column in Model.QueryWhetherList){
-          @:<el-col :xs="24" :sm="12" :md="12" :lg="8" :xl="4" class="mb10" v-if="showAdvanceQueryUI">
             if(@column.EffectType == "Input" || @column.EffectType == "InputTextArea"){
-            @:<el-form-item label="@column.ColumnComment">
+            @:<el-form-item label="@column.ColumnComment" v-if="showAdvanceQueryUI">
               @:<el-input v-model="queryParams.@(@column.LowerPropertyName)" clearable="" placeholder="请输入@(@column.ColumnComment)"/>
-              @:
             </el-form-item>
             }else if(@column.EffectType == "InputTextArea"){
             @:<el-form-item label="@column.ColumnComment">
               @:<el-input-number v-model="queryParams.@(@column.LowerPropertyName)"  clearable="" placeholder="请输入@(@column.ColumnComment)"/>
-              @:
             </el-form-item>
             }else if(@column.EffectType == "InputNumber"){
             @:<el-form-item label="@column.ColumnComment">
@@ -75,9 +69,8 @@
               @:
             </el-form-item>
             }
-          @:</el-col>
             }
-          @:<el-col :xs="24" :sm="12" :md="12" :lg="6" :xl="6" class="mb10">
+            @:
             @:<el-form-item>
               @:<el-button-group>
                 @:<el-button type="primary"  icon="ele-Search" @@click="handleQuery" v-auth="'@(@Model.LowerClassName):page'"> 查询 </el-button>
@@ -86,18 +79,13 @@
                 @:<el-button icon="ele-ZoomIn" @@click="changeAdvanceQueryUI" v-if="!showAdvanceQueryUI"> 高级 </el-button>
                 @:<el-button icon="ele-ZoomOut" @@click="changeAdvanceQueryUI" v-if="showAdvanceQueryUI"> 隐藏 </el-button>
                 }
-                @:
               </el-button-group>
               @:
               @:<el-button-group style="margin-left:20px">
                 @:<el-button type="primary" icon="ele-Plus" @@click="openAdd@(@Model.ClassName)" v-auth="'@(@Model.LowerClassName):add'"> 新增 </el-button>
-                @:
               </el-button-group>
-              @:
             </el-form-item>
             @:
-          @:</el-col>
-        </el-row>
       </el-form>
       }
     </el-card>

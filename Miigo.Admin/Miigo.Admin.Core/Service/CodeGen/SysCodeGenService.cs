@@ -435,17 +435,20 @@ public class SysCodeGenService : IDynamicApiController, ITransient
         }
 
         // 菜单
+        var title = busName + "管理";
+        var menuList1 = await _db.Queryable<SysMenu>().Where(u => u.Title == title && u.Type == MenuTypeEnum.Menu).ToListAsync();
+
         var menuType1 = new SysMenu
         {
             Pid = pid,
-            Title = busName + "管理",
+            Title = title,
+            Icon = menuList1?.FirstOrDefault()?.Icon, //恢复已设置图标
             Name = className[..1].ToLower() + className[1..],
             Type = MenuTypeEnum.Menu,
             Path = pPath + "/" + className.ToLower(),
             Component = "/main/" + className[..1].ToLower() + className[1..] + "/index",
         };
         // 若先前存在则删除本级和下级
-        var menuList1 = await _db.Queryable<SysMenu>().Where(u => u.Title == menuType1.Title && u.Type == menuType1.Type).ToListAsync();
         if (menuList1.Count > 0)
         {
             var listIds = menuList1.Select(u => u.Id).ToList();
