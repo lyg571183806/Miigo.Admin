@@ -92,11 +92,6 @@
 					<div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
 					<template #tip>
 						<div class="el-upload__tip">请上传大小不超过 10MB 的文件</div>
-						<div style="display: flex;">
-							<el-select placeholder="分类" clearable filterable></el-select>
-							<el-select placeholder="专辑" clearable filterable></el-select>
-							<el-select placeholder="标签" clearable filterable multiple></el-select>
-						</div>
 					</template>
 				</el-upload>
 			</div>

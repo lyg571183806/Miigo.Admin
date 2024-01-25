@@ -22,6 +22,7 @@ public class BizMediaService : IDynamicApiController, ITransient
     public async Task<SqlSugarPagedList<BizMediaOutput>> Page(BizMediaInput input)
     {
         var query= _rep.AsQueryable()
+            .Where(u=>!u.IsDelete)
             .WhereIF(!string.IsNullOrWhiteSpace(input.SearchKey), u =>
                 u.Name.Contains(input.SearchKey.Trim())
                 || u.Url.Contains(input.SearchKey.Trim())
@@ -74,6 +75,19 @@ public class BizMediaService : IDynamicApiController, ITransient
     {
         var entity = input.Adapt<BizMedia>();
         await _rep.InsertAsync(entity);
+    }
+
+    /// <summary>
+    /// 批量增加媒体
+    /// </summary>
+    /// <param name="inputList"></param>
+    /// <returns></returns>
+    [HttpPost]
+    [ApiDescriptionSettings(Name = "BatchAdd")]
+    public async Task BatchAdd(List<AddBizMediaInput> inputList)
+    {
+        var entityList = inputList.Adapt<List<BizMedia>>();
+        await _rep.InsertRangeAsync(entityList);
     }
 
     /// <summary>
