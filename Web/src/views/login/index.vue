@@ -1,13 +1,13 @@
 <template>
 	<div class="login-container flex">
 		<div class="login-left flex-margin">
-			<div class="login-left-logo">
+			<!-- <div class="login-left-logo">
 				<img :src="logoMini" />
 				<div class="login-left-logo-text">
 					<span>{{ getThemeConfig.globalViceTitle }}</span>
 					<span class="login-left-logo-text-msg">{{ getThemeConfig.globalViceTitleMsg }}</span>
 				</div>
-			</div>
+			</div> -->
 			<el-carousel height="500px">
 				<el-carousel-item>
 					<img :src="loginIconTwo" class="login-icon-group-icon" />
@@ -25,7 +25,7 @@
 				<span class="login-right-warp-one"></span>
 				<span class="login-right-warp-two"></span>
 				<div class="login-right-warp-main">
-					<div class="login-right-warp-main-title">{{ getThemeConfig.globalTitle }}</div>
+					<div class="login-right-warp-main-title"><img :src="logoMini" width="50px" />{{ getThemeConfig.globalTitle }}</div>					
 					<div class="login-right-warp-main-form">
 						<div v-if="!state.isScan">
 							<el-tabs v-model="state.tabsActiveName">
@@ -205,6 +205,9 @@ onMounted(() => {
 					animation: logoAnimation 0.3s ease;
 					animation-delay: 0.3s;
 					color: var(--el-color-primary);
+					display: flex;
+					align-items: center;
+					padding-left: 100px;
 				}
 				.login-right-warp-main-form {
 					flex: 1;

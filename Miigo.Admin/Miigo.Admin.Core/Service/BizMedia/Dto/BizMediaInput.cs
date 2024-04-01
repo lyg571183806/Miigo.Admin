@@ -108,8 +108,11 @@ namespace Miigo.Admin.Core;
         /// 描述
         /// </summary>
         public string? Desc { get; set; }
-        
-    }
+
+        //租户id
+        public long? TenantId { get; set; }   
+
+}
 
     /// <summary>
     /// 媒体增加输入参数

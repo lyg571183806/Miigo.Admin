@@ -146,26 +146,38 @@ public class BizMediaService : IDynamicApiController, ITransient
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
-    [ApiDescriptionSettings(Name = "BizCatalogCatalogDropdown"), HttpGet]
-    public async Task<dynamic> BizCatalogCatalogDropdown()
+    [ApiDescriptionSettings(Name = "BizCatalogCatalogDropdown"), HttpGet, AllowAnonymous]
+    public async Task<dynamic> BizCatalogCatalogDropdown(long? tenantId = null)
     {
+        //登录用户系统默认已筛选租户，超级管理员除外
         return await _rep.Context.Queryable<BizCatalog>()
+                .WhereIF(tenantId != null && tenantId > 0, x => x.TenantId == tenantId)
                 .Select(u => new
                 {
                     Label = u.Name,
                     Value = u.Id
                 }
-                ).ToListAsync();
+                )
+                .ToListAsync();
     }
     /// <summary>
     /// 获取专辑列表
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
-    [ApiDescriptionSettings(Name = "BizAlbumAlbumDropdown"), HttpGet]
-    public async Task<dynamic> BizAlbumAlbumDropdown()
+    [ApiDescriptionSettings(Name = "BizAlbumAlbumDropdown"), HttpGet, AllowAnonymous]
+    public async Task<dynamic> BizAlbumAlbumDropdown(long? tenantId = null)
     {
+        if (App.User?.Identity.IsAuthenticated == true)
+        {
+            var tenantStr = App.User?.FindFirst(ClaimConst.TenantId)?.Value;
+            if (!string.IsNullOrWhiteSpace(tenantStr))
+            {
+                tenantId = long.Parse(tenantStr);
+            }
+        }
         return await _rep.Context.Queryable<BizAlbum>()
+                .WhereIF(tenantId != null && tenantId > 0, x => x.TenantId == tenantId)
                 .Select(u => new
                 {
                     Label = u.Name,

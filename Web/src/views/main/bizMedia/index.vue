@@ -146,7 +146,7 @@
 import { ref, reactive } from "vue";
 import { ElMessageBox, ElMessage } from "element-plus";
 import { auth } from '/@/utils/authFunction';
-import { getDictDataItem as di, getDictDataList as dl } from '/@/utils/dict-utils';
+// import { getDictDataItem as di, getDictDataList as dl } from '/@/utils/dict-utils';
 //import { formatDate } from '/@/utils/formatTime';
 import { getAPI } from '/@/utils/axios-utils';
 import { BizMediaApi, SysFileApi } from '/@/api-services/api';
@@ -272,7 +272,7 @@ const uploadFile = async () => {
     let files = state.fileList.map((x: any) => x.raw);
 
     var fileResult = await getAPI(SysFileApi).apiSysFileUploadFilesPostForm(files);
-    if(fileResult && fileResult.status == 200 && fileResult.data.result?.length > 0){
+    if(fileResult && fileResult.status == 200 && fileResult.data.result){
       let mediaList:AddBizMediaInput[] = [];
       fileResult.data.result?.forEach((x: any) => {
         let album = <AddBizMediaInput>{
