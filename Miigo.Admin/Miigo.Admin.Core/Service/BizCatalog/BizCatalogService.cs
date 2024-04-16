@@ -1,4 +1,9 @@
 ﻿
+using AngleSharp.Io;
+using Microsoft.AspNetCore.Http.Headers;
+using Microsoft.Extensions.Primitives;
+using Nest;
+
 namespace Miigo.Admin.Core.Service;
 /// <summary>
 /// 分类服务
@@ -119,8 +124,44 @@ public class BizCatalogService : IDynamicApiController, ITransient
     {
             var service = App.GetService<SysFileService>();
             return await service.UploadFile(file, "upload/Logo"); 
-    } 
+    }
 
+
+    /// <summary>
+    /// 分页查询分类
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    [HttpPost]
+    [ApiDescriptionSettings(Name = "GetList")]
+    //[AllowAnonymous]
+    [Authorize(AuthenticationSchemes = SignatureAuthenticationDefaults.SimpleAuthenticationScheme)]
+    public async Task<SqlSugarPagedList<BizCatalogOutput>> GetList(BizCatalogInput input)
+    {
+
+        var query = _rep.AsQueryable()
+            .WhereIF(!string.IsNullOrWhiteSpace(input.SearchKey), u =>
+                u.Name.Contains(input.SearchKey.Trim())
+                || u.Desc.Contains(input.SearchKey.Trim())
+            )
+            .WhereIF(!string.IsNullOrWhiteSpace(input.Name), u => u.Name.Contains(input.Name.Trim()))
+            .WhereIF(!string.IsNullOrWhiteSpace(input.Desc), u => u.Desc.Contains(input.Desc.Trim()))
+            //处理外键和TreeSelector相关字段的连接
+            .Select((u) => new BizCatalogOutput
+            {
+                Id = u.Id,
+                Name = u.Name,
+                Desc = u.Desc,
+                Logo = u.Logo,
+                Sort = u.Sort,
+                CreateUserName = u.CreateUserName,
+                UpdateUserName = u.UpdateUserName,
+            })
+//.Mapper(c => c.LogoAttachment, c => c.Logo)
+;
+        query = query.OrderBuilder(input, "", "CreateTime");
+        return await query.ToPagedListAsync(input.Page, input.PageSize);
+    }
 
 
 }

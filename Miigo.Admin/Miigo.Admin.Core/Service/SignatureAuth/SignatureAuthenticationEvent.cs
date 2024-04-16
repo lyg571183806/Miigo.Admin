@@ -16,6 +16,11 @@ public class SignatureAuthenticationEvent
     public Func<GetAccessSecretContext, Task<string>> OnGetAccessSecret { get; set; }
 
     /// <summary>
+    /// 获取或设置获取 Access 数据的逻辑处理
+    /// </summary>
+    public Func<GetAccessSecretContext, Task<SysOpenAccess>> OnGetAccessModel { get; set; }
+
+    /// <summary>
     /// 获取或设置质询的逻辑处理
     /// </summary>
     public Func<SignatureChallengeContext, Task> OnChallenge { get; set; } = _ => Task.CompletedTask;
@@ -31,6 +36,13 @@ public class SignatureAuthenticationEvent
     /// <param name="context"></param>
     /// <returns></returns>
     public virtual Task<string> GetAccessSecret(GetAccessSecretContext context) => OnGetAccessSecret?.Invoke(context) ?? throw new NotImplementedException($"需要提供 {nameof(OnGetAccessSecret)} 实现");
+
+    /// <summary>
+    /// 获取 OpenAccess model
+    /// </summary>
+    /// <param name="context"></param>
+    /// <returns></returns>
+    public virtual Task<SysOpenAccess> GetAccessModel(GetAccessSecretContext context) => OnGetAccessModel?.Invoke(context) ?? throw new NotImplementedException($"需要提供 {nameof(OnGetAccessModel)} 实现");
 
     /// <summary>
     /// 质询

@@ -36,7 +36,12 @@ public class Startup : AppStartup
             .AddSignatureAuthentication(options =>
             {
                 options.Events = SysOpenAccessService.GetSignatureAuthenticationEventImpl();
+            })
+            .AddSimpleSignatureAuthentication(options =>
+            {
+                options.Events = SysOpenAccessService.GetSimpleSignatureAuthenticationEventImpl();
             });
+        
         // 允许跨域
         services.AddCorsAccessor();
         // 远程请求

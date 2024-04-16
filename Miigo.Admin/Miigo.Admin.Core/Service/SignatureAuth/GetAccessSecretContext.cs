@@ -18,4 +18,5 @@ public class GetAccessSecretContext : BaseContext<SignatureAuthenticationOptions
     /// 身份标识
     /// </summary>
     public string AccessKey { get; set; }
+    public string AccessSecret{ get; set; }
 }

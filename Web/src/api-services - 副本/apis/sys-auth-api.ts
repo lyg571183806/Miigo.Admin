@@ -167,7 +167,7 @@ export const SysAuthApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * 用户名/密码：superadmin/123456
+         * 用户名/密码：username/123456
          * @summary 账号密码登录
          * @param {LoginInput} body 
          * @param {*} [options] Override http request option.
@@ -545,7 +545,7 @@ export const SysAuthApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 用户名/密码：superadmin/123456
+         * 用户名/密码：username/123456
          * @summary 账号密码登录
          * @param {LoginInput} body 
          * @param {*} [options] Override http request option.
@@ -677,7 +677,7 @@ export const SysAuthApiFactory = function (configuration?: Configuration, basePa
             return SysAuthApiFp(configuration).apiSysAuthLoginPhonePost(body, options).then((request) => request(axios, basePath));
         },
         /**
-         * 用户名/密码：superadmin/123456
+         * 用户名/密码：username/123456
          * @summary 账号密码登录
          * @param {LoginInput} body 
          * @param {*} [options] Override http request option.
@@ -785,7 +785,7 @@ export class SysAuthApi extends BaseAPI {
         return SysAuthApiFp(this.configuration).apiSysAuthLoginPhonePost(body, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * 用户名/密码：superadmin/123456
+     * 用户名/密码：username/123456
      * @summary 账号密码登录
      * @param {LoginInput} body 
      * @param {*} [options] Override http request option.

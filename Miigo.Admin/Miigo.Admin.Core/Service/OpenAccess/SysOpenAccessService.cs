@@ -127,6 +127,25 @@ public class SysOpenAccessService : IDynamicApiController, ITransient
     }
 
     /// <summary>
+    /// 根据 accessSecrt 获取对象
+    /// </summary>
+    /// <param name="accessSecrt"></param>
+    /// <returns></returns>
+    [NonAction]
+    public Task<SysOpenAccess> GetBySecret([FromQuery] string accessSecrt)
+    {
+        return Task.FromResult(
+            _sysCacheService.GetOrAdd(CacheConst.KeyOpenAccess + accessSecrt, _ =>
+            {
+                return _sysOpenAccessRep.AsQueryable()
+                    .Includes(u => u.BindUser)
+                    .Includes(u => u.BindUser, p => p.SysOrg)
+                    .First(u => u.AccessSecret == accessSecrt);
+            })
+        );
+    }
+
+    /// <summary>
     /// Signature 身份验证事件默认实现
     /// </summary>
     [NonAction]
@@ -170,4 +189,49 @@ public class SysOpenAccessService : IDynamicApiController, ITransient
             }
         };
     }
+
+    /// <summary>
+    /// Signature 身份验证事件默认实现
+    /// </summary>
+    [NonAction]
+    public static SignatureAuthenticationEvent GetSimpleSignatureAuthenticationEventImpl()
+    {
+        return new SignatureAuthenticationEvent
+        {
+            OnGetAccessModel = context =>
+            {
+                var logger = context.HttpContext.RequestServices.GetService<ILogger<SysOpenAccessService>>();
+                try
+                {
+                    var openAccessService = context.HttpContext.RequestServices.GetService<SysOpenAccessService>();
+                    var openAccess = openAccessService.GetBySecret(context.AccessSecret).GetAwaiter().GetResult();
+                    return Task.FromResult(openAccess);
+                }
+                catch (Exception ex)
+                {
+                    logger.LogError(ex, ex.Message);
+                    return Task.FromResult(new SysOpenAccess());
+                }
+            },
+            OnValidated = context =>
+            {
+                var openAccess = context.OpenAccess;
+                var identity = ((ClaimsIdentity)context.Principal!.Identity!);
+
+                identity.AddClaims(new[]
+                {
+                    new Claim(ClaimConst.UserId, openAccess.BindUserId + ""),
+                    new Claim(ClaimConst.TenantId, openAccess.BindTenantId + ""),
+                    new Claim(ClaimConst.Account, openAccess.BindUser?.Account + ""),
+                    new Claim(ClaimConst.RealName, openAccess.BindUser?.RealName),
+                    new Claim(ClaimConst.AccountType, ((int) openAccess.BindUser.AccountType).ToString()),
+                    new Claim(ClaimConst.OrgId, openAccess.BindUser?.OrgId + ""),
+                    new Claim(ClaimConst.OrgName, openAccess.BindUser?.SysOrg?.Name + ""),
+                    new Claim(ClaimConst.OrgType, openAccess.BindUser?.SysOrg?.Type + ""),
+                });
+                return Task.CompletedTask;
+            }
+        };
+    }
+
 }

@@ -23,4 +23,5 @@ public class SignatureValidatedContext : ResultContext<SignatureAuthenticationOp
     /// 密钥
     /// </summary>
     public string AccessSecret { get; set; }
+    public SysOpenAccess OpenAccess { get; set; }
 }

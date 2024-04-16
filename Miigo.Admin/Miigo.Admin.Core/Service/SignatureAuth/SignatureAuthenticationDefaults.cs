@@ -10,6 +10,7 @@ public static class SignatureAuthenticationDefaults
     /// SignatureAuthenticationOptions.AuthenticationScheme 使用的默认值
     /// </summary>
     public const string AuthenticationScheme = "Signature";
+    public const string SimpleAuthenticationScheme = "SimpleSignature";
 
     /// <summary>
     /// 附加在 HttpContext Item 中验证失败消息的 Key
