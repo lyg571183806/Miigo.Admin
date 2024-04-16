@@ -134,11 +134,9 @@ public class BizCatalogService : IDynamicApiController, ITransient
     /// <returns></returns>
     [HttpPost]
     [ApiDescriptionSettings(Name = "GetList")]
-    //[AllowAnonymous]
     [Authorize(AuthenticationSchemes = SignatureAuthenticationDefaults.SimpleAuthenticationScheme)]
     public async Task<SqlSugarPagedList<BizCatalogOutput>> GetList(BizCatalogInput input)
     {
-
         var query = _rep.AsQueryable()
             .WhereIF(!string.IsNullOrWhiteSpace(input.SearchKey), u =>
                 u.Name.Contains(input.SearchKey.Trim())

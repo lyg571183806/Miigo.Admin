@@ -124,8 +124,40 @@ public class BizAlbumService : IDynamicApiController, ITransient
     {
             var service = App.GetService<SysFileService>();
             return await service.UploadFile(file, "upload/logo"); 
-    } 
+    }
 
+    /// <summary>
+    /// 分页查询专辑
+    /// </summary>
+    /// <param name="input"></param>
+    /// <returns></returns>
+    [HttpPost]
+    [ApiDescriptionSettings(Name = "GetList")]
+    [Authorize(AuthenticationSchemes = SignatureAuthenticationDefaults.SimpleAuthenticationScheme)]
+    public async Task<SqlSugarPagedList<BizAlbumOutput>> GetList(BizAlbumInput input)
+    {
+        var query = _rep.AsQueryable()
+            .WhereIF(!string.IsNullOrWhiteSpace(input.SearchKey), u =>
+                u.Name.Contains(input.SearchKey.Trim())
+                || u.Desc.Contains(input.SearchKey.Trim())
+            )
+            .WhereIF(!string.IsNullOrWhiteSpace(input.name), u => u.Name.Contains(input.name.Trim()))
+            .WhereIF(!string.IsNullOrWhiteSpace(input.desc), u => u.Desc.Contains(input.desc.Trim()))
+            //处理外键和TreeSelector相关字段的连接
+            .Select((u) => new BizAlbumOutput
+            {
+                Id = u.Id,
+                name = u.Name,
+                desc = u.Desc,
+                logo = u.Logo,
+                CreateUserName = u.CreateUserName,
+                UpdateUserName = u.UpdateUserName,
+            })
+//.Mapper(c => c.logoAttachment, c => c.logo)
+;
+        query = query.OrderBuilder(input, "", "CreateTime");
+        return await query.ToPagedListAsync(input.Page, input.PageSize);
+    }
 
 
 }
