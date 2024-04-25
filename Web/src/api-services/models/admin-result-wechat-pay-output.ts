@@ -13,11 +13,7 @@
  */
 
 import { WechatPayOutput } from './wechat-pay-output';
-import {
-    WechatPayOutput,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

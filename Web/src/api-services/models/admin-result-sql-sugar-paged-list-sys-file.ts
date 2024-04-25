@@ -13,11 +13,7 @@
  */
 
 import { SqlSugarPagedListSysFile } from './sql-sugar-paged-list-sys-file';
-import {
-    SqlSugarPagedListSysFile,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

@@ -181,6 +181,54 @@ export const BizCatalogApiAxiosParamCreator = function (configuration?: Configur
         },
         /**
          * 
+         * @summary 分页查询分类
+         * @param {BizCatalogInput} [body] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiBizCatalogGetListPost: async (body?: BizCatalogInput, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/bizCatalog/getList`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? await configuration.accessToken()
+                    : await configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary 获取分类列表
          * @param {string} [searchKey] 关键字查询
          * @param {string} [name] 名称
@@ -463,6 +511,20 @@ export const BizCatalogApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @summary 分页查询分类
+         * @param {BizCatalogInput} [body] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiBizCatalogGetListPost(body?: BizCatalogInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AdminResultSqlSugarPagedListBizCatalogOutput>>> {
+            const localVarAxiosArgs = await BizCatalogApiAxiosParamCreator(configuration).apiBizCatalogGetListPost(body, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
          * @summary 获取分类列表
          * @param {string} [searchKey] 关键字查询
          * @param {string} [name] 名称
@@ -565,6 +627,16 @@ export const BizCatalogApiFactory = function (configuration?: Configuration, bas
         },
         /**
          * 
+         * @summary 分页查询分类
+         * @param {BizCatalogInput} [body] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiBizCatalogGetListPost(body?: BizCatalogInput, options?: AxiosRequestConfig): Promise<AxiosResponse<AdminResultSqlSugarPagedListBizCatalogOutput>> {
+            return BizCatalogApiFp(configuration).apiBizCatalogGetListPost(body, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary 获取分类列表
          * @param {string} [searchKey] 关键字查询
          * @param {string} [name] 名称
@@ -652,6 +724,17 @@ export class BizCatalogApi extends BaseAPI {
      */
     public async apiBizCatalogDetailGet(id: number, options?: AxiosRequestConfig) : Promise<AxiosResponse<AdminResultBizCatalog>> {
         return BizCatalogApiFp(this.configuration).apiBizCatalogDetailGet(id, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
+     * @summary 分页查询分类
+     * @param {BizCatalogInput} [body] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BizCatalogApi
+     */
+    public async apiBizCatalogGetListPost(body?: BizCatalogInput, options?: AxiosRequestConfig) : Promise<AxiosResponse<AdminResultSqlSugarPagedListBizCatalogOutput>> {
+        return BizCatalogApiFp(this.configuration).apiBizCatalogGetListPost(body, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 

@@ -12,11 +12,7 @@
  * Do not edit the class manually.
  */
 
-import {
-    
-} from ".";
-
-/**
+ /**
  * 代码生成参数类
  *
  * @export

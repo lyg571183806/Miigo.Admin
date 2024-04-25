@@ -13,11 +13,7 @@
  */
 
 import { BizMediaOutput } from './biz-media-output';
-import {
-    BizMediaOutput,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

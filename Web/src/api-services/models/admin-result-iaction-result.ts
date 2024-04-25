@@ -13,11 +13,7 @@
  */
 
 import { IActionResult } from './iaction-result';
-import {
-    IActionResult,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

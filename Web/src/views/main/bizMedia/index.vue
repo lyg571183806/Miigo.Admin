@@ -85,6 +85,15 @@
 
         </el-table-column>
         <el-table-column prop="desc" label="描述" width="140" show-overflow-tooltip="" />
+        <el-table-column prop="viewNum" label="观看数" width="55" align="center"/>
+        <el-table-column prop="isPublish" label="发布？" width="80" align="center">
+          <template #default="scope">
+            <el-checkbox v-model="scope.row.isPublish" onclick="return false"></el-checkbox>
+          </template>
+          <!-- <template #default="scope">
+            <span>{{ scope.row.IsPublish }}</span>
+          </template> -->
+        </el-table-column>
         <el-table-column label="操作" width="140" align="center" fixed="right" show-overflow-tooltip=""
           v-if="auth('bizMedia:edit') || auth('bizMedia:delete')">
           <template #default="scope">
@@ -277,11 +286,12 @@ const uploadFile = async () => {
       fileResult.data.result?.forEach((x: any) => {
         let album = <AddBizMediaInput>{
           url: x.url,
-          name:x.name,
+          name:x.fileName,
           size:x.size,
           fileId:x.id,
           catalog:state.fileCatalog,
-          album:state.fileAlbum
+          album:state.fileAlbum,
+          isPublish:true
         };
         mediaList.push(album);        
       });

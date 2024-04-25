@@ -13,11 +13,7 @@
  */
 
 import { DataItem } from './data-item';
-import {
-    DataItem,
-} from ".";
-
-/**
+ /**
  * 发送订阅消息
  *
  * @export

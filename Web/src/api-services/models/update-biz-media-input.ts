@@ -12,11 +12,7 @@
  * Do not edit the class manually.
  */
 
-import {
-    
-} from ".";
-
-/**
+ /**
  * 媒体更新输入参数
  *
  * @export
@@ -103,6 +99,30 @@ export interface UpdateBizMediaInput {
      * @memberof UpdateBizMediaInput
      */
     desc?: string | null;
+
+    /**
+     * 观看数
+     *
+     * @type {number}
+     * @memberof UpdateBizMediaInput
+     */
+    viewNum?: number;
+
+    /**
+     * 状态
+     *
+     * @type {string}
+     * @memberof UpdateBizMediaInput
+     */
+    status?: string | null;
+
+    /**
+     * 是否发布
+     *
+     * @type {boolean}
+     * @memberof UpdateBizMediaInput
+     */
+    isPublish?: boolean;
 
     /**
      * 主键Id

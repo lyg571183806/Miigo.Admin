@@ -12,11 +12,7 @@
  * Do not edit the class manually.
  */
 
-import {
-    
-} from ".";
-
-/**
+ /**
  * 授权用户角色
  *
  * @export

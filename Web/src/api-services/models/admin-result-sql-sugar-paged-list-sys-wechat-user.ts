@@ -13,11 +13,7 @@
  */
 
 import { SqlSugarPagedListSysWechatUser } from './sql-sugar-paged-list-sys-wechat-user';
-import {
-    SqlSugarPagedListSysWechatUser,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

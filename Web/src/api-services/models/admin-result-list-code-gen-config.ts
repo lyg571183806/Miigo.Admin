@@ -13,11 +13,7 @@
  */
 
 import { CodeGenConfig } from './code-gen-config';
-import {
-    CodeGenConfig,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

@@ -13,11 +13,7 @@
  */
 
 import { DatabaseOutput } from './database-output';
-import {
-    DatabaseOutput,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

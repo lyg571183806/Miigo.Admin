@@ -13,11 +13,7 @@
  */
 
 import { SysLogOp } from './sys-log-op';
-import {
-    SysLogOp,
-} from ".";
-
-/**
+ /**
  * 分页泛型集合
  *
  * @export

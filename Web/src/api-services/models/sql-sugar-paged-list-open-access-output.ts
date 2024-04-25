@@ -13,11 +13,7 @@
  */
 
 import { OpenAccessOutput } from './open-access-output';
-import {
-    OpenAccessOutput,
-} from ".";
-
-/**
+ /**
  * 分页泛型集合
  *
  * @export

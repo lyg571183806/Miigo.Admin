@@ -13,11 +13,7 @@
  */
 
 import { SysLogVis } from './sys-log-vis';
-import {
-    SysLogVis,
-} from ".";
-
-/**
+ /**
  * 分页泛型集合
  *
  * @export

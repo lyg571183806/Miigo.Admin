@@ -33,12 +33,14 @@ public class BizMediaService : IDynamicApiController, ITransient
                 || u.Desc.Contains(input.SearchKey.Trim())
             )
             .WhereIF(!string.IsNullOrWhiteSpace(input.Name), u => u.Name.Contains(input.Name.Trim()))
+            .WhereIF(!string.IsNullOrWhiteSpace(input.Status), u => u.Status==input.Status.Trim())
             .WhereIF(input.FileId>0, u => u.FileId == input.FileId)
             .WhereIF(!string.IsNullOrWhiteSpace(input.Url), u => u.Url.Contains(input.Url.Trim()))
             .WhereIF(!string.IsNullOrWhiteSpace(input.CreateUserName), u => u.CreateUserName.Contains(input.CreateUserName.Trim()))
             .WhereIF(!string.IsNullOrWhiteSpace(input.UpdateUserName), u => u.UpdateUserName.Contains(input.UpdateUserName.Trim()))
             .WhereIF(input.Catalog>0, u => u.Catalog == input.Catalog)
             .WhereIF(input.Album>0, u => u.Album == input.Album)
+            .WhereIF(input.IsPublish, u => u.IsPublish == input.IsPublish)
             .WhereIF(!string.IsNullOrWhiteSpace(input.Desc), u => u.Desc.Contains(input.Desc.Trim()))
             //处理外键和TreeSelector相关字段的连接
             .LeftJoin<BizCatalog>((u, catalog) => u.Catalog == catalog.Id )
@@ -57,7 +59,10 @@ public class BizMediaService : IDynamicApiController, ITransient
                 Album = u.Album, 
                 AlbumName = album.Name,
                 Desc = u.Desc,
-                CreateTime = u.CreateTime
+                CreateTime = u.CreateTime,
+                ViewNum = u.ViewNum,
+                Status = u.Status,
+                IsPublish = u.IsPublish
             })
             //.Mapper(c => c.UrlAttachment, c => c.Url)
             //.Mapper(c => c.CoverAttachment, c => c.Cover)
@@ -78,6 +83,7 @@ public class BizMediaService : IDynamicApiController, ITransient
         var entity = input.Adapt<BizMedia>();
         await _rep.InsertAsync(entity);
     }
+
 
     /// <summary>
     /// 批量增加媒体

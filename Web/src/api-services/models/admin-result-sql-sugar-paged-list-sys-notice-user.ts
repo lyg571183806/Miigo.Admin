@@ -13,11 +13,7 @@
  */
 
 import { SqlSugarPagedListSysNoticeUser } from './sql-sugar-paged-list-sys-notice-user';
-import {
-    SqlSugarPagedListSysNoticeUser,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

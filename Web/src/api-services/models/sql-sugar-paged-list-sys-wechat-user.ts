@@ -13,11 +13,7 @@
  */
 
 import { SysWechatUser } from './sys-wechat-user';
-import {
-    SysWechatUser,
-} from ".";
-
-/**
+ /**
  * 分页泛型集合
  *
  * @export

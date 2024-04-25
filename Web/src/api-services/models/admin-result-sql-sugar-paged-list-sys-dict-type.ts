@@ -13,11 +13,7 @@
  */
 
 import { SqlSugarPagedListSysDictType } from './sql-sugar-paged-list-sys-dict-type';
-import {
-    SqlSugarPagedListSysDictType,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

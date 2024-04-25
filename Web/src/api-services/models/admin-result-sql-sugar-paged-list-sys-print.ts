@@ -13,11 +13,7 @@
  */
 
 import { SqlSugarPagedListSysPrint } from './sql-sugar-paged-list-sys-print';
-import {
-    SqlSugarPagedListSysPrint,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

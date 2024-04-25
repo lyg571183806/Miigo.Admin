@@ -13,11 +13,7 @@
  */
 
 import { SysJobCluster } from './sys-job-cluster';
-import {
-    SysJobCluster,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

@@ -20,11 +20,7 @@ import { StatusEnum } from './status-enum';
 import { SysOrg } from './sys-org';
 import { SysPos } from './sys-pos';
 import { SysUser } from './sys-user';
-import {
-    AccountTypeEnum,CardTypeEnum,CultureLevelEnum,GenderEnum,StatusEnum,SysOrg,SysPos,SysUser,
-} from ".";
-
-/**
+ /**
  * 系统用户表
  *
  * @export

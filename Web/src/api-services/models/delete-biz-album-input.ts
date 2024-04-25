@@ -12,11 +12,7 @@
  * Do not edit the class manually.
  */
 
-import {
-    
-} from ".";
-
-/**
+ /**
  * 专辑删除输入参数
  *
  * @export

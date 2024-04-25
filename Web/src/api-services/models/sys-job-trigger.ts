@@ -13,11 +13,7 @@
  */
 
 import { TriggerStatus } from './trigger-status';
-import {
-    TriggerStatus,
-} from ".";
-
-/**
+ /**
  * 系统作业触发器表
  *
  * @export

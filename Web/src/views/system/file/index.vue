@@ -281,7 +281,8 @@ const handleCurrentChange = (val: number) => {
 // 获取文件地址
 const getFileUrl = (row: SysFile): string => {
 	if (row.bucketName == 'Local') {
-		return `/${row.filePath}/${row.id}${row.suffix}`;
+		// return `/${row.filePath}/${row.id}${row.suffix}`;
+		return `${row.url}`;
 	} else {
 		return row.url!;
 	}

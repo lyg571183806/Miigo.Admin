@@ -13,11 +13,7 @@
  */
 
 import { SqlSugarPagedListSysCodeGen } from './sql-sugar-paged-list-sys-code-gen';
-import {
-    SqlSugarPagedListSysCodeGen,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

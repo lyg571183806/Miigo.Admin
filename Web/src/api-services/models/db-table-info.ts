@@ -13,11 +13,7 @@
  */
 
 import { DbObjectType } from './db-object-type';
-import {
-    DbObjectType,
-} from ".";
-
-/**
+ /**
  * 
  *
  * @export

@@ -13,11 +13,7 @@
  */
 
 import { MenuOutput } from './menu-output';
-import {
-    MenuOutput,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

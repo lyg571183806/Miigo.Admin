@@ -14,11 +14,7 @@
 
 import { SysJobDetail } from './sys-job-detail';
 import { SysJobTrigger } from './sys-job-trigger';
-import {
-    SysJobDetail,SysJobTrigger,
-} from ".";
-
-/**
+ /**
  * 
  *
  * @export

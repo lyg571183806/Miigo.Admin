@@ -12,11 +12,7 @@
  * Do not edit the class manually.
  */
 
-import {
-    
-} from ".";
-
-/**
+ /**
  * 媒体增加输入参数
  *
  * @export
@@ -103,4 +99,28 @@ export interface AddBizMediaInput {
      * @memberof AddBizMediaInput
      */
     desc?: string | null;
+
+    /**
+     * 观看数
+     *
+     * @type {number}
+     * @memberof AddBizMediaInput
+     */
+    viewNum?: number;
+
+    /**
+     * 状态
+     *
+     * @type {string}
+     * @memberof AddBizMediaInput
+     */
+    status?: string | null;
+
+    /**
+     * 是否发布
+     *
+     * @type {boolean}
+     * @memberof AddBizMediaInput
+     */
+    isPublish?: boolean;
 }

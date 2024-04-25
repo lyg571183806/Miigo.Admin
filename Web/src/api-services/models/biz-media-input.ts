@@ -12,11 +12,7 @@
  * Do not edit the class manually.
  */
 
-import {
-    
-} from ".";
-
-/**
+ /**
  * 媒体分页查询输入参数
  *
  * @export
@@ -135,4 +131,42 @@ export interface BizMediaInput {
      * @memberof BizMediaInput
      */
     desc?: string | null;
+
+    /**
+     * @type {number}
+     * @memberof BizMediaInput
+     */
+    tenantId?: number | null;
+
+    /**
+     * 文件后缀
+     *
+     * @type {string}
+     * @memberof BizMediaInput
+     */
+    suffix?: string | null;
+
+    /**
+     * 观看数
+     *
+     * @type {number}
+     * @memberof BizMediaInput
+     */
+    viewNum?: number;
+
+    /**
+     * 状态
+     *
+     * @type {string}
+     * @memberof BizMediaInput
+     */
+    status?: string | null;
+
+    /**
+     * 是否发布
+     *
+     * @type {boolean}
+     * @memberof BizMediaInput
+     */
+    isPublish?: boolean;
 }

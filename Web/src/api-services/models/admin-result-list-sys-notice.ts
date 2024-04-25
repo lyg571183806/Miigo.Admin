@@ -13,11 +13,7 @@
  */
 
 import { SysNotice } from './sys-notice';
-import {
-    SysNotice,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

@@ -13,11 +13,7 @@
  */
 
 import { SysUser } from './sys-user';
-import {
-    SysUser,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

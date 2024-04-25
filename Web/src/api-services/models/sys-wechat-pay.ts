@@ -14,11 +14,7 @@
 
 import { SysUser } from './sys-user';
 import { SysWechatUser } from './sys-wechat-user';
-import {
-    SysUser,SysWechatUser,
-} from ".";
-
-/**
+ /**
  * 系统微信支付表
  *
  * @export

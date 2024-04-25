@@ -13,11 +13,7 @@
  */
 
 import { SysOnlineUser } from './sys-online-user';
-import {
-    SysOnlineUser,
-} from ".";
-
-/**
+ /**
  * 分页泛型集合
  *
  * @export

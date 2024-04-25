@@ -13,11 +13,7 @@
  */
 
 import { SqlSugarPagedListSysRegion } from './sql-sugar-paged-list-sys-region';
-import {
-    SqlSugarPagedListSysRegion,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

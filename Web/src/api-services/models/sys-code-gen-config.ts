@@ -13,11 +13,7 @@
  */
 
 import { SysUser } from './sys-user';
-import {
-    SysUser,
-} from ".";
-
-/**
+ /**
  * 代码生成字段配置表
  *
  * @export

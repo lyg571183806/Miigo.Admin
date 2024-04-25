@@ -13,11 +13,7 @@
  */
 
 import { SysConfig } from './sys-config';
-import {
-    SysConfig,
-} from ".";
-
-/**
+ /**
  * 分页泛型集合
  *
  * @export

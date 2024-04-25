@@ -13,11 +13,7 @@
  */
 
 import { AccountTypeEnum } from './account-type-enum';
-import {
-    AccountTypeEnum,
-} from ".";
-
-/**
+ /**
  * 用户登录信息
  *
  * @export

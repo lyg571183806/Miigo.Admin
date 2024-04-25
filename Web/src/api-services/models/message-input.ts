@@ -13,11 +13,7 @@
  */
 
 import { MessageTypeEnum } from './message-type-enum';
-import {
-    MessageTypeEnum,
-} from ".";
-
-/**
+ /**
  * 
  *
  * @export

@@ -15,11 +15,7 @@
 import { StatusEnum } from './status-enum';
 import { SysDictData } from './sys-dict-data';
 import { SysUser } from './sys-user';
-import {
-    StatusEnum,SysDictData,SysUser,
-} from ".";
-
-/**
+ /**
  * 系统字典类型表
  *
  * @export

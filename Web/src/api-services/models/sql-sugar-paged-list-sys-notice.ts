@@ -13,11 +13,7 @@
  */
 
 import { SysNotice } from './sys-notice';
-import {
-    SysNotice,
-} from ".";
-
-/**
+ /**
  * 分页泛型集合
  *
  * @export

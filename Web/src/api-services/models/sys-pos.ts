@@ -14,11 +14,7 @@
 
 import { StatusEnum } from './status-enum';
 import { SysUser } from './sys-user';
-import {
-    StatusEnum,SysUser,
-} from ".";
-
-/**
+ /**
  * 系统职位表
  *
  * @export

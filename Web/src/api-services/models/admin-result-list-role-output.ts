@@ -13,11 +13,7 @@
  */
 
 import { RoleOutput } from './role-output';
-import {
-    RoleOutput,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

@@ -13,11 +13,7 @@
  */
 
 import { SysFile } from './sys-file';
-import {
-    SysFile,
-} from ".";
-
-/**
+ /**
  * 分页泛型集合
  *
  * @export

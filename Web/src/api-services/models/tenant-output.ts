@@ -16,11 +16,7 @@ import { DbType } from './db-type';
 import { StatusEnum } from './status-enum';
 import { SysUser } from './sys-user';
 import { TenantTypeEnum } from './tenant-type-enum';
-import {
-    DbType,StatusEnum,SysUser,TenantTypeEnum,
-} from ".";
-
-/**
+ /**
  * 
  *
  * @export

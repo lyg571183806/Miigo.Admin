@@ -16,11 +16,7 @@ import { MenuOutput } from './menu-output';
 import { MenuTypeEnum } from './menu-type-enum';
 import { StatusEnum } from './status-enum';
 import { SysMenuMeta } from './sys-menu-meta';
-import {
-    MenuOutput,MenuTypeEnum,StatusEnum,SysMenuMeta,
-} from ".";
-
-/**
+ /**
  * 系统菜单返回结果
  *
  * @export

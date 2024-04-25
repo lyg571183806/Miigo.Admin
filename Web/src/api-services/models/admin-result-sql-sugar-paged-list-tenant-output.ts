@@ -13,11 +13,7 @@
  */
 
 import { SqlSugarPagedListTenantOutput } from './sql-sugar-paged-list-tenant-output';
-import {
-    SqlSugarPagedListTenantOutput,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

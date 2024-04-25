@@ -13,11 +13,7 @@
  */
 
 import { TableOutput } from './table-output';
-import {
-    TableOutput,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

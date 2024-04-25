@@ -15,11 +15,7 @@
 import { SysOrg } from './sys-org';
 import { SysPos } from './sys-pos';
 import { SysUser } from './sys-user';
-import {
-    SysOrg,SysPos,SysUser,
-} from ".";
-
-/**
+ /**
  * 系统用户扩展机构表
  *
  * @export

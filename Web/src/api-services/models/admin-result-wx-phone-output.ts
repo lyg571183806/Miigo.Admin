@@ -13,11 +13,7 @@
  */
 
 import { WxPhoneOutput } from './wx-phone-output';
-import {
-    WxPhoneOutput,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

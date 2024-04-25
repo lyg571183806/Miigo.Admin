@@ -13,11 +13,7 @@
  */
 
 import { SqlSugarPagedListSysLogDiff } from './sql-sugar-paged-list-sys-log-diff';
-import {
-    SqlSugarPagedListSysLogDiff,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

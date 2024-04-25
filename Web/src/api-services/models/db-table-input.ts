@@ -13,11 +13,7 @@
  */
 
 import { DbColumnInput } from './db-column-input';
-import {
-    DbColumnInput,
-} from ".";
-
-/**
+ /**
  * 
  *
  * @export

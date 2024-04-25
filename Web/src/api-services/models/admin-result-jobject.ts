@@ -13,11 +13,7 @@
  */
 
 import { JToken } from './jtoken';
-import {
-    JToken,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

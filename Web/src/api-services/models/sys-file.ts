@@ -13,11 +13,7 @@
  */
 
 import { SysUser } from './sys-user';
-import {
-    SysUser,
-} from ".";
-
-/**
+ /**
  * 系统文件表
  *
  * @export

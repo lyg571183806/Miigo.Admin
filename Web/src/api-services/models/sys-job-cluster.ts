@@ -13,11 +13,7 @@
  */
 
 import { ClusterStatus } from './cluster-status';
-import {
-    ClusterStatus,
-} from ".";
-
-/**
+ /**
  * 系统作业集群表
  *
  * @export

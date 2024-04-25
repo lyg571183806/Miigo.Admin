@@ -13,11 +13,7 @@
  */
 
 import { WxOpenIdOutput } from './wx-open-id-output';
-import {
-    WxOpenIdOutput,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

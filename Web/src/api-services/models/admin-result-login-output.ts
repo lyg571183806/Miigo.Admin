@@ -13,11 +13,7 @@
  */
 
 import { LoginOutput } from './login-output';
-import {
-    LoginOutput,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

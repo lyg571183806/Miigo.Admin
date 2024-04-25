@@ -73,6 +73,21 @@ public class BizMediaOutput
     /// </summary>
     public string? Desc { get; set; }
     public DateTime? CreateTime { get;  set; }
+
+    /// <summary>
+    /// 观看数
+    /// </summary>
+    public int ViewNum { get; set; }
+
+    /// <summary>
+    /// 状态
+    /// </summary>
+    public string? Status { get; set; }
+
+    /// <summary>
+    /// 是否发布
+    /// </summary>
+    public bool IsPublish { get; set; }
 }
  
 

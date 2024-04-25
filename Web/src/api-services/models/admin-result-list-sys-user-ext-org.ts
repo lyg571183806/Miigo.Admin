@@ -13,11 +13,7 @@
  */
 
 import { SysUserExtOrg } from './sys-user-ext-org';
-import {
-    SysUserExtOrg,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

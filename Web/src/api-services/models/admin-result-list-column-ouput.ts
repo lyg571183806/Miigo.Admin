@@ -13,11 +13,7 @@
  */
 
 import { ColumnOuput } from './column-ouput';
-import {
-    ColumnOuput,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

@@ -13,11 +13,7 @@
  */
 
 import { SysDictType } from './sys-dict-type';
-import {
-    SysDictType,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

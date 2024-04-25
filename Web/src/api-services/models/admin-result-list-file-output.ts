@@ -13,11 +13,7 @@
  */
 
 import { FileOutput } from './file-output';
-import {
-    FileOutput,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

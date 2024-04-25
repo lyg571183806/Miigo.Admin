@@ -13,11 +13,7 @@
  */
 
 import { ConstOutput } from './const-output';
-import {
-    ConstOutput,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

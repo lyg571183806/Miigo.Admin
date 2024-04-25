@@ -13,11 +13,7 @@
  */
 
 import { JobCreateTypeEnum } from './job-create-type-enum';
-import {
-    JobCreateTypeEnum,
-} from ".";
-
-/**
+ /**
  * 
  *
  * @export

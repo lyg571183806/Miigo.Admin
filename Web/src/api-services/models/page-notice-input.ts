@@ -13,11 +13,7 @@
  */
 
 import { NoticeTypeEnum } from './notice-type-enum';
-import {
-    NoticeTypeEnum,
-} from ".";
-
-/**
+ /**
  * 
  *
  * @export

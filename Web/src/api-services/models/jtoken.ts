@@ -13,11 +13,7 @@
  */
 
 import { JToken } from './jtoken';
-import {
-    JToken,
-} from ".";
-
-/**
+ /**
  * 
  *
  * @export

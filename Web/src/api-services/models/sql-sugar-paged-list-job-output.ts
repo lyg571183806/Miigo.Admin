@@ -13,11 +13,7 @@
  */
 
 import { JobOutput } from './job-output';
-import {
-    JobOutput,
-} from ".";
-
-/**
+ /**
  * 分页泛型集合
  *
  * @export

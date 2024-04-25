@@ -14,11 +14,7 @@
 
 import { LogLevel } from './log-level';
 import { SysUser } from './sys-user';
-import {
-    LogLevel,SysUser,
-} from ".";
-
-/**
+ /**
  * 系统操作日志表
  *
  * @export

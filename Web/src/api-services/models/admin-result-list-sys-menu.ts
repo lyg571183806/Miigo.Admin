@@ -13,11 +13,7 @@
  */
 
 import { SysMenu } from './sys-menu';
-import {
-    SysMenu,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

@@ -14,11 +14,7 @@
 
 import { NoticeUserStatusEnum } from './notice-user-status-enum';
 import { SysNotice } from './sys-notice';
-import {
-    NoticeUserStatusEnum,SysNotice,
-} from ".";
-
-/**
+ /**
  * 系统通知公告用户表
  *
  * @export

@@ -13,11 +13,7 @@
  */
 
 import { SysNoticeUser } from './sys-notice-user';
-import {
-    SysNoticeUser,
-} from ".";
-
-/**
+ /**
  * 分页泛型集合
  *
  * @export

@@ -13,11 +13,7 @@
  */
 
 import { SysCodeGen } from './sys-code-gen';
-import {
-    SysCodeGen,
-} from ".";
-
-/**
+ /**
  * 分页泛型集合
  *
  * @export

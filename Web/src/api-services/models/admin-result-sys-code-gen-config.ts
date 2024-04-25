@@ -13,11 +13,7 @@
  */
 
 import { SysCodeGenConfig } from './sys-code-gen-config';
-import {
-    SysCodeGenConfig,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

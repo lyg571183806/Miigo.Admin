@@ -13,11 +13,7 @@
  */
 
 import { EnumEntity } from './enum-entity';
-import {
-    EnumEntity,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

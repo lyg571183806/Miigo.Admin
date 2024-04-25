@@ -13,11 +13,7 @@
  */
 
 import { BizCatalog } from './biz-catalog';
-import {
-    BizCatalog,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

@@ -13,11 +13,7 @@
  */
 
 import { SysRole } from './sys-role';
-import {
-    SysRole,
-} from ".";
-
-/**
+ /**
  * 分页泛型集合
  *
  * @export

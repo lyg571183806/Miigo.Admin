@@ -13,11 +13,7 @@
  */
 
 import { DbType } from './db-type';
-import {
-    DbType,
-} from ".";
-
-/**
+ /**
  * 数据库
  *
  * @export

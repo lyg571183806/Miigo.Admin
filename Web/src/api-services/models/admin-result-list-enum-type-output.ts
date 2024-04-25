@@ -13,11 +13,7 @@
  */
 
 import { EnumTypeOutput } from './enum-type-output';
-import {
-    EnumTypeOutput,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

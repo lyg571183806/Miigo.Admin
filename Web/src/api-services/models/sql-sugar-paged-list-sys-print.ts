@@ -13,11 +13,7 @@
  */
 
 import { SysPrint } from './sys-print';
-import {
-    SysPrint,
-} from ".";
-
-/**
+ /**
  * 分页泛型集合
  *
  * @export

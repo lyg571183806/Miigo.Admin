@@ -13,11 +13,7 @@
  */
 
 import { SysRegion } from './sys-region';
-import {
-    SysRegion,
-} from ".";
-
-/**
+ /**
  * 
  *
  * @export

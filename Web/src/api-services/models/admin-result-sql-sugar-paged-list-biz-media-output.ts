@@ -13,11 +13,7 @@
  */
 
 import { SqlSugarPagedListBizMediaOutput } from './sql-sugar-paged-list-biz-media-output';
-import {
-    SqlSugarPagedListBizMediaOutput,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

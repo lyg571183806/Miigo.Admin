@@ -13,11 +13,7 @@
  */
 
 import { BizMedia } from './biz-media';
-import {
-    BizMedia,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

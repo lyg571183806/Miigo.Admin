@@ -16,11 +16,7 @@ import { MenuTypeEnum } from './menu-type-enum';
 import { StatusEnum } from './status-enum';
 import { SysMenu } from './sys-menu';
 import { SysUser } from './sys-user';
-import {
-    MenuTypeEnum,StatusEnum,SysMenu,SysUser,
-} from ".";
-
-/**
+ /**
  * 系统菜单表
  *
  * @export

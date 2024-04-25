@@ -13,11 +13,7 @@
  */
 
 import { SysDictData } from './sys-dict-data';
-import {
-    SysDictData,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

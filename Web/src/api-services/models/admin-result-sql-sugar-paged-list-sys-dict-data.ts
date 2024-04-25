@@ -13,11 +13,7 @@
  */
 
 import { SqlSugarPagedListSysDictData } from './sql-sugar-paged-list-sys-dict-data';
-import {
-    SqlSugarPagedListSysDictData,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

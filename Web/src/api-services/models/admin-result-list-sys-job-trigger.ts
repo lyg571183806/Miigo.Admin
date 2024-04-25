@@ -13,11 +13,7 @@
  */
 
 import { SysJobTrigger } from './sys-job-trigger';
-import {
-    SysJobTrigger,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

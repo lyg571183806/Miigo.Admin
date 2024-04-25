@@ -13,11 +13,7 @@
  */
 
 import { SysLogDiff } from './sys-log-diff';
-import {
-    SysLogDiff,
-} from ".";
-
-/**
+ /**
  * 分页泛型集合
  *
  * @export

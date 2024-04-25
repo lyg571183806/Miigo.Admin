@@ -13,11 +13,7 @@
  */
 
 import { TriggerStatus } from './trigger-status';
-import {
-    TriggerStatus,
-} from ".";
-
-/**
+ /**
  * 
  *
  * @export

@@ -13,11 +13,7 @@
  */
 
 import { SysRegion } from './sys-region';
-import {
-    SysRegion,
-} from ".";
-
-/**
+ /**
  * 分页泛型集合
  *
  * @export

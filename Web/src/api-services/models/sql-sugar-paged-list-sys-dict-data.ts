@@ -13,11 +13,7 @@
  */
 
 import { SysDictData } from './sys-dict-data';
-import {
-    SysDictData,
-} from ".";
-
-/**
+ /**
  * 分页泛型集合
  *
  * @export

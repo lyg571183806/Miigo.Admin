@@ -13,11 +13,7 @@
  */
 
 import { SysWechatPay } from './sys-wechat-pay';
-import {
-    SysWechatPay,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

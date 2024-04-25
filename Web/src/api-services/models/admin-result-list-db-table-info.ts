@@ -13,11 +13,7 @@
  */
 
 import { DbTableInfo } from './db-table-info';
-import {
-    DbTableInfo,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

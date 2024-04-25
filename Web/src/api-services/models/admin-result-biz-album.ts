@@ -13,11 +13,7 @@
  */
 
 import { BizAlbum } from './biz-album';
-import {
-    BizAlbum,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

@@ -13,11 +13,7 @@
  */
 
 import { BizMediaOutput } from './biz-media-output';
-import {
-    BizMediaOutput,
-} from ".";
-
-/**
+ /**
  * 分页泛型集合
  *
  * @export

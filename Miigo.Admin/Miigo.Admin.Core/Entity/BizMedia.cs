@@ -66,4 +66,24 @@ public class BizMedia  : EntityTenant
     [SugarColumn(ColumnName = "UpdateUserName", ColumnDescription = "修改者姓名", Length = 64)]
     public string? UpdateUserName { get; set; }
     
+    /// <summary>
+    /// 观看数
+    /// </summary>
+    [Required]
+    [SugarColumn(ColumnName = "ViewNum", ColumnDescription = "观看数")]
+    public int ViewNum { get; set; }
+    
+    /// <summary>
+    /// 状态
+    /// </summary>
+    [SugarColumn(ColumnName = "Status", ColumnDescription = "状态", Length = 50)]
+    public string? Status { get; set; }
+    
+    /// <summary>
+    /// 是否发布
+    /// </summary>
+    [Required]
+    [SugarColumn(ColumnName = "IsPublish", ColumnDescription = "是否发布")]
+    public bool IsPublish { get; set; }
+    
 }

@@ -13,11 +13,7 @@
  */
 
 import { StatusEnum } from './status-enum';
-import {
-    StatusEnum,
-} from ".";
-
-/**
+ /**
  * 
  *
  * @export

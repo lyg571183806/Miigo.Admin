@@ -13,11 +13,7 @@
  */
 
 import { SqlSugarPagedListSysLogVis } from './sql-sugar-paged-list-sys-log-vis';
-import {
-    SqlSugarPagedListSysLogVis,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

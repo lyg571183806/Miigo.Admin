@@ -13,11 +13,7 @@
  */
 
 import { SysFile } from './sys-file';
-import {
-    SysFile,
-} from ".";
-
-/**
+ /**
  * 媒体输出参数
  *
  * @export
@@ -146,4 +142,28 @@ export interface BizMediaOutput {
      * @memberof BizMediaOutput
      */
     createTime?: Date | null;
+
+    /**
+     * 观看数
+     *
+     * @type {number}
+     * @memberof BizMediaOutput
+     */
+    viewNum?: number;
+
+    /**
+     * 状态
+     *
+     * @type {string}
+     * @memberof BizMediaOutput
+     */
+    status?: string | null;
+
+    /**
+     * 是否发布
+     *
+     * @type {boolean}
+     * @memberof BizMediaOutput
+     */
+    isPublish?: boolean;
 }

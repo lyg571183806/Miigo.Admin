@@ -15,11 +15,7 @@
 import { StatusEnum } from './status-enum';
 import { SysOrg } from './sys-org';
 import { SysUser } from './sys-user';
-import {
-    StatusEnum,SysOrg,SysUser,
-} from ".";
-
-/**
+ /**
  * 系统机构表
  *
  * @export

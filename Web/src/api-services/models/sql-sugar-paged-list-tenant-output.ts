@@ -13,11 +13,7 @@
  */
 
 import { TenantOutput } from './tenant-output';
-import {
-    TenantOutput,
-} from ".";
-
-/**
+ /**
  * 分页泛型集合
  *
  * @export

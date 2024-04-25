@@ -13,11 +13,7 @@
  */
 
 import { SqlSugarPagedListBizCatalogOutput } from './sql-sugar-paged-list-biz-catalog-output';
-import {
-    SqlSugarPagedListBizCatalogOutput,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

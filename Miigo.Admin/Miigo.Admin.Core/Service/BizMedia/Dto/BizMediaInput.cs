@@ -56,6 +56,20 @@ public class BizMediaBaseInput
     /// 描述
     /// </summary>
     public virtual string? Desc { get; set; }
+    /// <summary>
+    /// 观看数
+    /// </summary>
+    public virtual int ViewNum { get; set; }
+
+    /// <summary>
+    /// 状态
+    /// </summary>
+    public virtual string? Status { get; set; }
+
+    /// <summary>
+    /// 是否发布
+    /// </summary>
+    public virtual bool IsPublish { get; set; }
 
 }
 
@@ -115,6 +129,20 @@ public class BizMediaInput : BasePageInput
     /// 文件后缀
     /// </summary>
     public string? Suffix { get; set; }
+    /// <summary>
+    /// 观看数
+    /// </summary>
+    public int ViewNum { get; set; }
+
+    /// <summary>
+    /// 状态
+    /// </summary>
+    public string? Status { get; set; }
+
+    /// <summary>
+    /// 是否发布
+    /// </summary>
+    public bool IsPublish { get; set; }
 
 }
 

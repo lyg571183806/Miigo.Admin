@@ -13,11 +13,7 @@
  */
 
 import { SysOrg } from './sys-org';
-import {
-    SysOrg,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

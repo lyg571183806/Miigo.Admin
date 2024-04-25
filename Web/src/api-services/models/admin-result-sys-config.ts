@@ -13,11 +13,7 @@
  */
 
 import { SysConfig } from './sys-config';
-import {
-    SysConfig,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

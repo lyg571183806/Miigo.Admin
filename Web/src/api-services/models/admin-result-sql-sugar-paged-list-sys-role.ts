@@ -13,11 +13,7 @@
  */
 
 import { SqlSugarPagedListSysRole } from './sql-sugar-paged-list-sys-role';
-import {
-    SqlSugarPagedListSysRole,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

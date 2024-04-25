@@ -13,11 +13,7 @@
  */
 
 import { SqlSugarPagedListJobOutput } from './sql-sugar-paged-list-job-output';
-import {
-    SqlSugarPagedListJobOutput,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

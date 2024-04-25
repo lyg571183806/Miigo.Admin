@@ -13,11 +13,7 @@
  */
 
 import { SysPos } from './sys-pos';
-import {
-    SysPos,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

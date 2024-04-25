@@ -15,11 +15,7 @@
 import { DataScopeEnum } from './data-scope-enum';
 import { StatusEnum } from './status-enum';
 import { SysUser } from './sys-user';
-import {
-    DataScopeEnum,StatusEnum,SysUser,
-} from ".";
-
-/**
+ /**
  * 
  *
  * @export

@@ -131,11 +131,12 @@ export const BizMediaApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * 
          * @summary 获取专辑列表
+         * @param {number} [tenantId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiBizMediaBizAlbumAlbumDropdownGet: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/bizMedia/bizAlbumAlbumDropdown`;
+        apiBizMediaBizAlbumAlbumDropdownTenantIdGet: async (tenantId?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/bizMedia/bizAlbumAlbumDropdown/{tenantId}`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
             let baseOptions;
@@ -153,6 +154,10 @@ export const BizMediaApiAxiosParamCreator = function (configuration?: Configurat
                     ? await configuration.accessToken()
                     : await configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (tenantId !== undefined) {
+                localVarQueryParameter['tenantId'] = tenantId;
             }
 
             const query = new URLSearchParams(localVarUrlObj.search);
@@ -174,11 +179,12 @@ export const BizMediaApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * 
          * @summary 获取分类列表
+         * @param {number} [tenantId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiBizMediaBizCatalogCatalogDropdownGet: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/bizMedia/bizCatalogCatalogDropdown`;
+        apiBizMediaBizCatalogCatalogDropdownTenantIdGet: async (tenantId?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/bizMedia/bizCatalogCatalogDropdown/{tenantId}`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
             let baseOptions;
@@ -196,6 +202,10 @@ export const BizMediaApiAxiosParamCreator = function (configuration?: Configurat
                     ? await configuration.accessToken()
                     : await configuration.accessToken;
                 localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (tenantId !== undefined) {
+                localVarQueryParameter['tenantId'] = tenantId;
             }
 
             const query = new URLSearchParams(localVarUrlObj.search);
@@ -316,6 +326,54 @@ export const BizMediaApiAxiosParamCreator = function (configuration?: Configurat
         },
         /**
          * 
+         * @summary 分页查询媒体
+         * @param {BizMediaInput} [body] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiBizMediaGetListPost: async (body?: BizMediaInput, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/bizMedia/getList`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? await configuration.accessToken()
+                    : await configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary 获取媒体列表
          * @param {string} [searchKey] 关键字查询
          * @param {string} [name] 文件名
@@ -326,6 +384,11 @@ export const BizMediaApiAxiosParamCreator = function (configuration?: Configurat
          * @param {number} [catalog] 分类
          * @param {number} [album] 专辑
          * @param {string} [desc] 描述
+         * @param {number} [tenantId] 
+         * @param {string} [suffix] 文件后缀
+         * @param {number} [viewNum] 观看数
+         * @param {string} [status] 状态
+         * @param {boolean} [isPublish] 是否发布
          * @param {number} [page] 当前页码
          * @param {number} [pageSize] 页码容量
          * @param {string} [field] 排序字段
@@ -334,7 +397,7 @@ export const BizMediaApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiBizMediaListGet: async (searchKey?: string, name?: string, fileId?: number, url?: string, createUserName?: string, updateUserName?: string, catalog?: number, album?: number, desc?: string, page?: number, pageSize?: number, field?: string, order?: string, descStr?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        apiBizMediaListGet: async (searchKey?: string, name?: string, fileId?: number, url?: string, createUserName?: string, updateUserName?: string, catalog?: number, album?: number, desc?: string, tenantId?: number, suffix?: string, viewNum?: number, status?: string, isPublish?: boolean, page?: number, pageSize?: number, field?: string, order?: string, descStr?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/bizMedia/list`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -389,6 +452,26 @@ export const BizMediaApiAxiosParamCreator = function (configuration?: Configurat
 
             if (desc !== undefined) {
                 localVarQueryParameter['Desc'] = desc;
+            }
+
+            if (tenantId !== undefined) {
+                localVarQueryParameter['TenantId'] = tenantId;
+            }
+
+            if (suffix !== undefined) {
+                localVarQueryParameter['Suffix'] = suffix;
+            }
+
+            if (viewNum !== undefined) {
+                localVarQueryParameter['ViewNum'] = viewNum;
+            }
+
+            if (status !== undefined) {
+                localVarQueryParameter['Status'] = status;
+            }
+
+            if (isPublish !== undefined) {
+                localVarQueryParameter['IsPublish'] = isPublish;
             }
 
             if (page !== undefined) {
@@ -667,11 +750,12 @@ export const BizMediaApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary 获取专辑列表
+         * @param {number} [tenantId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiBizMediaBizAlbumAlbumDropdownGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AdminResultObject>>> {
-            const localVarAxiosArgs = await BizMediaApiAxiosParamCreator(configuration).apiBizMediaBizAlbumAlbumDropdownGet(options);
+        async apiBizMediaBizAlbumAlbumDropdownTenantIdGet(tenantId?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AdminResultObject>>> {
+            const localVarAxiosArgs = await BizMediaApiAxiosParamCreator(configuration).apiBizMediaBizAlbumAlbumDropdownTenantIdGet(tenantId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -680,11 +764,12 @@ export const BizMediaApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary 获取分类列表
+         * @param {number} [tenantId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiBizMediaBizCatalogCatalogDropdownGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AdminResultObject>>> {
-            const localVarAxiosArgs = await BizMediaApiAxiosParamCreator(configuration).apiBizMediaBizCatalogCatalogDropdownGet(options);
+        async apiBizMediaBizCatalogCatalogDropdownTenantIdGet(tenantId?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AdminResultObject>>> {
+            const localVarAxiosArgs = await BizMediaApiAxiosParamCreator(configuration).apiBizMediaBizCatalogCatalogDropdownTenantIdGet(tenantId, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -720,6 +805,20 @@ export const BizMediaApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @summary 分页查询媒体
+         * @param {BizMediaInput} [body] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiBizMediaGetListPost(body?: BizMediaInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AdminResultSqlSugarPagedListBizMediaOutput>>> {
+            const localVarAxiosArgs = await BizMediaApiAxiosParamCreator(configuration).apiBizMediaGetListPost(body, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
          * @summary 获取媒体列表
          * @param {string} [searchKey] 关键字查询
          * @param {string} [name] 文件名
@@ -730,6 +829,11 @@ export const BizMediaApiFp = function(configuration?: Configuration) {
          * @param {number} [catalog] 分类
          * @param {number} [album] 专辑
          * @param {string} [desc] 描述
+         * @param {number} [tenantId] 
+         * @param {string} [suffix] 文件后缀
+         * @param {number} [viewNum] 观看数
+         * @param {string} [status] 状态
+         * @param {boolean} [isPublish] 是否发布
          * @param {number} [page] 当前页码
          * @param {number} [pageSize] 页码容量
          * @param {string} [field] 排序字段
@@ -738,8 +842,8 @@ export const BizMediaApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiBizMediaListGet(searchKey?: string, name?: string, fileId?: number, url?: string, createUserName?: string, updateUserName?: string, catalog?: number, album?: number, desc?: string, page?: number, pageSize?: number, field?: string, order?: string, descStr?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AdminResultListBizMediaOutput>>> {
-            const localVarAxiosArgs = await BizMediaApiAxiosParamCreator(configuration).apiBizMediaListGet(searchKey, name, fileId, url, createUserName, updateUserName, catalog, album, desc, page, pageSize, field, order, descStr, options);
+        async apiBizMediaListGet(searchKey?: string, name?: string, fileId?: number, url?: string, createUserName?: string, updateUserName?: string, catalog?: number, album?: number, desc?: string, tenantId?: number, suffix?: string, viewNum?: number, status?: string, isPublish?: boolean, page?: number, pageSize?: number, field?: string, order?: string, descStr?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AdminResultListBizMediaOutput>>> {
+            const localVarAxiosArgs = await BizMediaApiAxiosParamCreator(configuration).apiBizMediaListGet(searchKey, name, fileId, url, createUserName, updateUserName, catalog, album, desc, tenantId, suffix, viewNum, status, isPublish, page, pageSize, field, order, descStr, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -833,20 +937,22 @@ export const BizMediaApiFactory = function (configuration?: Configuration, baseP
         /**
          * 
          * @summary 获取专辑列表
+         * @param {number} [tenantId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiBizMediaBizAlbumAlbumDropdownGet(options?: AxiosRequestConfig): Promise<AxiosResponse<AdminResultObject>> {
-            return BizMediaApiFp(configuration).apiBizMediaBizAlbumAlbumDropdownGet(options).then((request) => request(axios, basePath));
+        async apiBizMediaBizAlbumAlbumDropdownTenantIdGet(tenantId?: number, options?: AxiosRequestConfig): Promise<AxiosResponse<AdminResultObject>> {
+            return BizMediaApiFp(configuration).apiBizMediaBizAlbumAlbumDropdownTenantIdGet(tenantId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary 获取分类列表
+         * @param {number} [tenantId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiBizMediaBizCatalogCatalogDropdownGet(options?: AxiosRequestConfig): Promise<AxiosResponse<AdminResultObject>> {
-            return BizMediaApiFp(configuration).apiBizMediaBizCatalogCatalogDropdownGet(options).then((request) => request(axios, basePath));
+        async apiBizMediaBizCatalogCatalogDropdownTenantIdGet(tenantId?: number, options?: AxiosRequestConfig): Promise<AxiosResponse<AdminResultObject>> {
+            return BizMediaApiFp(configuration).apiBizMediaBizCatalogCatalogDropdownTenantIdGet(tenantId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -870,6 +976,16 @@ export const BizMediaApiFactory = function (configuration?: Configuration, baseP
         },
         /**
          * 
+         * @summary 分页查询媒体
+         * @param {BizMediaInput} [body] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiBizMediaGetListPost(body?: BizMediaInput, options?: AxiosRequestConfig): Promise<AxiosResponse<AdminResultSqlSugarPagedListBizMediaOutput>> {
+            return BizMediaApiFp(configuration).apiBizMediaGetListPost(body, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary 获取媒体列表
          * @param {string} [searchKey] 关键字查询
          * @param {string} [name] 文件名
@@ -880,6 +996,11 @@ export const BizMediaApiFactory = function (configuration?: Configuration, baseP
          * @param {number} [catalog] 分类
          * @param {number} [album] 专辑
          * @param {string} [desc] 描述
+         * @param {number} [tenantId] 
+         * @param {string} [suffix] 文件后缀
+         * @param {number} [viewNum] 观看数
+         * @param {string} [status] 状态
+         * @param {boolean} [isPublish] 是否发布
          * @param {number} [page] 当前页码
          * @param {number} [pageSize] 页码容量
          * @param {string} [field] 排序字段
@@ -888,8 +1009,8 @@ export const BizMediaApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiBizMediaListGet(searchKey?: string, name?: string, fileId?: number, url?: string, createUserName?: string, updateUserName?: string, catalog?: number, album?: number, desc?: string, page?: number, pageSize?: number, field?: string, order?: string, descStr?: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AdminResultListBizMediaOutput>> {
-            return BizMediaApiFp(configuration).apiBizMediaListGet(searchKey, name, fileId, url, createUserName, updateUserName, catalog, album, desc, page, pageSize, field, order, descStr, options).then((request) => request(axios, basePath));
+        async apiBizMediaListGet(searchKey?: string, name?: string, fileId?: number, url?: string, createUserName?: string, updateUserName?: string, catalog?: number, album?: number, desc?: string, tenantId?: number, suffix?: string, viewNum?: number, status?: string, isPublish?: boolean, page?: number, pageSize?: number, field?: string, order?: string, descStr?: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AdminResultListBizMediaOutput>> {
+            return BizMediaApiFp(configuration).apiBizMediaListGet(searchKey, name, fileId, url, createUserName, updateUserName, catalog, album, desc, tenantId, suffix, viewNum, status, isPublish, page, pageSize, field, order, descStr, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -966,22 +1087,24 @@ export class BizMediaApi extends BaseAPI {
     /**
      * 
      * @summary 获取专辑列表
+     * @param {number} [tenantId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BizMediaApi
      */
-    public async apiBizMediaBizAlbumAlbumDropdownGet(options?: AxiosRequestConfig) : Promise<AxiosResponse<AdminResultObject>> {
-        return BizMediaApiFp(this.configuration).apiBizMediaBizAlbumAlbumDropdownGet(options).then((request) => request(this.axios, this.basePath));
+    public async apiBizMediaBizAlbumAlbumDropdownTenantIdGet(tenantId?: number, options?: AxiosRequestConfig) : Promise<AxiosResponse<AdminResultObject>> {
+        return BizMediaApiFp(this.configuration).apiBizMediaBizAlbumAlbumDropdownTenantIdGet(tenantId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 
      * @summary 获取分类列表
+     * @param {number} [tenantId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BizMediaApi
      */
-    public async apiBizMediaBizCatalogCatalogDropdownGet(options?: AxiosRequestConfig) : Promise<AxiosResponse<AdminResultObject>> {
-        return BizMediaApiFp(this.configuration).apiBizMediaBizCatalogCatalogDropdownGet(options).then((request) => request(this.axios, this.basePath));
+    public async apiBizMediaBizCatalogCatalogDropdownTenantIdGet(tenantId?: number, options?: AxiosRequestConfig) : Promise<AxiosResponse<AdminResultObject>> {
+        return BizMediaApiFp(this.configuration).apiBizMediaBizCatalogCatalogDropdownTenantIdGet(tenantId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 
@@ -1007,6 +1130,17 @@ export class BizMediaApi extends BaseAPI {
     }
     /**
      * 
+     * @summary 分页查询媒体
+     * @param {BizMediaInput} [body] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BizMediaApi
+     */
+    public async apiBizMediaGetListPost(body?: BizMediaInput, options?: AxiosRequestConfig) : Promise<AxiosResponse<AdminResultSqlSugarPagedListBizMediaOutput>> {
+        return BizMediaApiFp(this.configuration).apiBizMediaGetListPost(body, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
      * @summary 获取媒体列表
      * @param {string} [searchKey] 关键字查询
      * @param {string} [name] 文件名
@@ -1017,6 +1151,11 @@ export class BizMediaApi extends BaseAPI {
      * @param {number} [catalog] 分类
      * @param {number} [album] 专辑
      * @param {string} [desc] 描述
+     * @param {number} [tenantId] 
+     * @param {string} [suffix] 文件后缀
+     * @param {number} [viewNum] 观看数
+     * @param {string} [status] 状态
+     * @param {boolean} [isPublish] 是否发布
      * @param {number} [page] 当前页码
      * @param {number} [pageSize] 页码容量
      * @param {string} [field] 排序字段
@@ -1026,8 +1165,8 @@ export class BizMediaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BizMediaApi
      */
-    public async apiBizMediaListGet(searchKey?: string, name?: string, fileId?: number, url?: string, createUserName?: string, updateUserName?: string, catalog?: number, album?: number, desc?: string, page?: number, pageSize?: number, field?: string, order?: string, descStr?: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AdminResultListBizMediaOutput>> {
-        return BizMediaApiFp(this.configuration).apiBizMediaListGet(searchKey, name, fileId, url, createUserName, updateUserName, catalog, album, desc, page, pageSize, field, order, descStr, options).then((request) => request(this.axios, this.basePath));
+    public async apiBizMediaListGet(searchKey?: string, name?: string, fileId?: number, url?: string, createUserName?: string, updateUserName?: string, catalog?: number, album?: number, desc?: string, tenantId?: number, suffix?: string, viewNum?: number, status?: string, isPublish?: boolean, page?: number, pageSize?: number, field?: string, order?: string, descStr?: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AdminResultListBizMediaOutput>> {
+        return BizMediaApiFp(this.configuration).apiBizMediaListGet(searchKey, name, fileId, url, createUserName, updateUserName, catalog, album, desc, tenantId, suffix, viewNum, status, isPublish, page, pageSize, field, order, descStr, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 

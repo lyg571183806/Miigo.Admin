@@ -13,11 +13,7 @@
  */
 
 import { SysFile } from './sys-file';
-import {
-    SysFile,
-} from ".";
-
-/**
+ /**
  * 分类输出参数
  *
  * @export

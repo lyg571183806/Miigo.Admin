@@ -14,11 +14,7 @@
 
 import { SysUser } from './sys-user';
 import { YesNoEnum } from './yes-no-enum';
-import {
-    SysUser,YesNoEnum,
-} from ".";
-
-/**
+ /**
  * 系统参数配置表
  *
  * @export

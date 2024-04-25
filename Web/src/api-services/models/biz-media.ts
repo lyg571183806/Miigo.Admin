@@ -13,11 +13,7 @@
  */
 
 import { SysUser } from './sys-user';
-import {
-    SysUser,
-} from ".";
-
-/**
+ /**
  * 媒体
  *
  * @export
@@ -172,4 +168,28 @@ export interface BizMedia {
      * @memberof BizMedia
      */
     updateUserName?: string | null;
+
+    /**
+     * 观看数
+     *
+     * @type {number}
+     * @memberof BizMedia
+     */
+    viewNum: number;
+
+    /**
+     * 状态
+     *
+     * @type {string}
+     * @memberof BizMedia
+     */
+    status?: string | null;
+
+    /**
+     * 是否发布
+     *
+     * @type {boolean}
+     * @memberof BizMedia
+     */
+    isPublish: boolean;
 }

@@ -14,11 +14,7 @@
 
 import { SysTenant } from './sys-tenant';
 import { SysUser } from './sys-user';
-import {
-    SysTenant,SysUser,
-} from ".";
-
-/**
+ /**
  * 
  *
  * @export

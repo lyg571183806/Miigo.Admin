@@ -13,11 +13,7 @@
  */
 
 import { SqlSugarPagedListOpenAccessOutput } from './sql-sugar-paged-list-open-access-output';
-import {
-    SqlSugarPagedListOpenAccessOutput,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

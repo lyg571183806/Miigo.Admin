@@ -21,11 +21,7 @@ import { SysOrg } from './sys-org';
 import { SysPos } from './sys-pos';
 import { SysUser } from './sys-user';
 import { SysUserExtOrg } from './sys-user-ext-org';
-import {
-    AccountTypeEnum,CardTypeEnum,CultureLevelEnum,GenderEnum,StatusEnum,SysOrg,SysPos,SysUser,SysUserExtOrg,
-} from ".";
-
-/**
+ /**
  * 
  *
  * @export

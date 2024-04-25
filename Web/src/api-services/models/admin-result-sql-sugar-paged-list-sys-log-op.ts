@@ -13,11 +13,7 @@
  */
 
 import { SqlSugarPagedListSysLogOp } from './sql-sugar-paged-list-sys-log-op';
-import {
-    SqlSugarPagedListSysLogOp,
-} from ".";
-
-/**
+ /**
  * 全局返回结果
  *
  * @export

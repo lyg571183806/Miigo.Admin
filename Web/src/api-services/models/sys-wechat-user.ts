@@ -14,11 +14,7 @@
 
 import { PlatformTypeEnum } from './platform-type-enum';
 import { SysUser } from './sys-user';
-import {
-    PlatformTypeEnum,SysUser,
-} from ".";
-
-/**
+ /**
  * 系统微信用户表
  *
  * @export

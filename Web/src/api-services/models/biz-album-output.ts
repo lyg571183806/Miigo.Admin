@@ -13,11 +13,7 @@
  */
 
 import { SysFile } from './sys-file';
-import {
-    SysFile,
-} from ".";
-
-/**
+ /**
  * 专辑输出参数
  *
  * @export

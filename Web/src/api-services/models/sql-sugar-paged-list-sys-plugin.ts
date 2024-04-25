@@ -13,11 +13,7 @@
  */
 
 import { SysPlugin } from './sys-plugin';
-import {
-    SysPlugin,
-} from ".";
-
-/**
+ /**
  * 分页泛型集合
  *
  * @export
