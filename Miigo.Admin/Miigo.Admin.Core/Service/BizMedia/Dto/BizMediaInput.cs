@@ -70,6 +70,10 @@ public class BizMediaBaseInput
     /// 是否发布
     /// </summary>
     public virtual bool IsPublish { get; set; }
+    /// <summary>
+    /// 热门?
+    /// </summary>
+    public virtual bool IsHot { get; set; }
 
 }
 
@@ -143,6 +147,10 @@ public class BizMediaInput : BasePageInput
     /// 是否发布
     /// </summary>
     public bool IsPublish { get; set; }
+    /// <summary>
+    /// 热门?
+    /// </summary>
+    public bool IsHot { get; set; }
 
 }
 

@@ -192,4 +192,12 @@ export interface BizMedia {
      * @memberof BizMedia
      */
     isPublish: boolean;
+
+    /**
+     * 热门?
+     *
+     * @type {boolean}
+     * @memberof BizMedia
+     */
+    isHot: boolean;
 }

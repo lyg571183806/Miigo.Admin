@@ -83,7 +83,14 @@ public class BizMedia  : EntityTenant
     /// 是否发布
     /// </summary>
     [Required]
-    [SugarColumn(ColumnName = "IsPublish", ColumnDescription = "是否发布")]
+    [SugarColumn(ColumnName = "IsPublish", ColumnDescription = "发布?")]
     public bool IsPublish { get; set; }
-    
+
+    /// <summary>
+    /// 热门?
+    /// </summary>
+    [Required]
+    [SugarColumn(ColumnName = "IsHot", ColumnDescription = "热门?")]
+    public bool IsHot { get; set; }
+
 }

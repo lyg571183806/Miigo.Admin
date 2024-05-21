@@ -125,6 +125,14 @@ export interface UpdateBizMediaInput {
     isPublish?: boolean;
 
     /**
+     * 热门?
+     *
+     * @type {boolean}
+     * @memberof UpdateBizMediaInput
+     */
+    isHot?: boolean;
+
+    /**
      * 主键Id
      *
      * @type {number}

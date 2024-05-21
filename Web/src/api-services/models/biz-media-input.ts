@@ -169,4 +169,12 @@ export interface BizMediaInput {
      * @memberof BizMediaInput
      */
     isPublish?: boolean;
+
+    /**
+     * 热门?
+     *
+     * @type {boolean}
+     * @memberof BizMediaInput
+     */
+    isHot?: boolean;
 }

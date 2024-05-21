@@ -123,4 +123,12 @@ export interface AddBizMediaInput {
      * @memberof AddBizMediaInput
      */
     isPublish?: boolean;
+
+    /**
+     * 热门?
+     *
+     * @type {boolean}
+     * @memberof AddBizMediaInput
+     */
+    isHot?: boolean;
 }

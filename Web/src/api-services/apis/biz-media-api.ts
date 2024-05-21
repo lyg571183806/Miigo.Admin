@@ -389,6 +389,7 @@ export const BizMediaApiAxiosParamCreator = function (configuration?: Configurat
          * @param {number} [viewNum] 观看数
          * @param {string} [status] 状态
          * @param {boolean} [isPublish] 是否发布
+         * @param {boolean} [isHot] 热门?
          * @param {number} [page] 当前页码
          * @param {number} [pageSize] 页码容量
          * @param {string} [field] 排序字段
@@ -397,7 +398,7 @@ export const BizMediaApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        apiBizMediaListGet: async (searchKey?: string, name?: string, fileId?: number, url?: string, createUserName?: string, updateUserName?: string, catalog?: number, album?: number, desc?: string, tenantId?: number, suffix?: string, viewNum?: number, status?: string, isPublish?: boolean, page?: number, pageSize?: number, field?: string, order?: string, descStr?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        apiBizMediaListGet: async (searchKey?: string, name?: string, fileId?: number, url?: string, createUserName?: string, updateUserName?: string, catalog?: number, album?: number, desc?: string, tenantId?: number, suffix?: string, viewNum?: number, status?: string, isPublish?: boolean, isHot?: boolean, page?: number, pageSize?: number, field?: string, order?: string, descStr?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/bizMedia/list`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -472,6 +473,10 @@ export const BizMediaApiAxiosParamCreator = function (configuration?: Configurat
 
             if (isPublish !== undefined) {
                 localVarQueryParameter['IsPublish'] = isPublish;
+            }
+
+            if (isHot !== undefined) {
+                localVarQueryParameter['IsHot'] = isHot;
             }
 
             if (page !== undefined) {
@@ -600,6 +605,54 @@ export const BizMediaApiAxiosParamCreator = function (configuration?: Configurat
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
             localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary 更新观看数
+         * @param {number} [id] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        apiBizMediaUpdateViewNumPost: async (id?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/bizMedia/updateViewNum`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            if (configuration && configuration.accessToken) {
+                const accessToken = typeof configuration.accessToken === 'function'
+                    ? await configuration.accessToken()
+                    : await configuration.accessToken;
+                localVarHeaderParameter["Authorization"] = "Bearer " + accessToken;
+            }
+
+            if (id !== undefined) {
+                localVarQueryParameter['id'] = id;
+            }
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
             return {
                 url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
@@ -834,6 +887,7 @@ export const BizMediaApiFp = function(configuration?: Configuration) {
          * @param {number} [viewNum] 观看数
          * @param {string} [status] 状态
          * @param {boolean} [isPublish] 是否发布
+         * @param {boolean} [isHot] 热门?
          * @param {number} [page] 当前页码
          * @param {number} [pageSize] 页码容量
          * @param {string} [field] 排序字段
@@ -842,8 +896,8 @@ export const BizMediaApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiBizMediaListGet(searchKey?: string, name?: string, fileId?: number, url?: string, createUserName?: string, updateUserName?: string, catalog?: number, album?: number, desc?: string, tenantId?: number, suffix?: string, viewNum?: number, status?: string, isPublish?: boolean, page?: number, pageSize?: number, field?: string, order?: string, descStr?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AdminResultListBizMediaOutput>>> {
-            const localVarAxiosArgs = await BizMediaApiAxiosParamCreator(configuration).apiBizMediaListGet(searchKey, name, fileId, url, createUserName, updateUserName, catalog, album, desc, tenantId, suffix, viewNum, status, isPublish, page, pageSize, field, order, descStr, options);
+        async apiBizMediaListGet(searchKey?: string, name?: string, fileId?: number, url?: string, createUserName?: string, updateUserName?: string, catalog?: number, album?: number, desc?: string, tenantId?: number, suffix?: string, viewNum?: number, status?: string, isPublish?: boolean, isHot?: boolean, page?: number, pageSize?: number, field?: string, order?: string, descStr?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<AdminResultListBizMediaOutput>>> {
+            const localVarAxiosArgs = await BizMediaApiAxiosParamCreator(configuration).apiBizMediaListGet(searchKey, name, fileId, url, createUserName, updateUserName, catalog, album, desc, tenantId, suffix, viewNum, status, isPublish, isHot, page, pageSize, field, order, descStr, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -872,6 +926,20 @@ export const BizMediaApiFp = function(configuration?: Configuration) {
          */
         async apiBizMediaUpdatePost(body?: UpdateBizMediaInput, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
             const localVarAxiosArgs = await BizMediaApiAxiosParamCreator(configuration).apiBizMediaUpdatePost(body, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
+         * 
+         * @summary 更新观看数
+         * @param {number} [id] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiBizMediaUpdateViewNumPost(id?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
+            const localVarAxiosArgs = await BizMediaApiAxiosParamCreator(configuration).apiBizMediaUpdateViewNumPost(id, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -1001,6 +1069,7 @@ export const BizMediaApiFactory = function (configuration?: Configuration, baseP
          * @param {number} [viewNum] 观看数
          * @param {string} [status] 状态
          * @param {boolean} [isPublish] 是否发布
+         * @param {boolean} [isHot] 热门?
          * @param {number} [page] 当前页码
          * @param {number} [pageSize] 页码容量
          * @param {string} [field] 排序字段
@@ -1009,8 +1078,8 @@ export const BizMediaApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async apiBizMediaListGet(searchKey?: string, name?: string, fileId?: number, url?: string, createUserName?: string, updateUserName?: string, catalog?: number, album?: number, desc?: string, tenantId?: number, suffix?: string, viewNum?: number, status?: string, isPublish?: boolean, page?: number, pageSize?: number, field?: string, order?: string, descStr?: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AdminResultListBizMediaOutput>> {
-            return BizMediaApiFp(configuration).apiBizMediaListGet(searchKey, name, fileId, url, createUserName, updateUserName, catalog, album, desc, tenantId, suffix, viewNum, status, isPublish, page, pageSize, field, order, descStr, options).then((request) => request(axios, basePath));
+        async apiBizMediaListGet(searchKey?: string, name?: string, fileId?: number, url?: string, createUserName?: string, updateUserName?: string, catalog?: number, album?: number, desc?: string, tenantId?: number, suffix?: string, viewNum?: number, status?: string, isPublish?: boolean, isHot?: boolean, page?: number, pageSize?: number, field?: string, order?: string, descStr?: string, options?: AxiosRequestConfig): Promise<AxiosResponse<AdminResultListBizMediaOutput>> {
+            return BizMediaApiFp(configuration).apiBizMediaListGet(searchKey, name, fileId, url, createUserName, updateUserName, catalog, album, desc, tenantId, suffix, viewNum, status, isPublish, isHot, page, pageSize, field, order, descStr, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -1031,6 +1100,16 @@ export const BizMediaApiFactory = function (configuration?: Configuration, baseP
          */
         async apiBizMediaUpdatePost(body?: UpdateBizMediaInput, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
             return BizMediaApiFp(configuration).apiBizMediaUpdatePost(body, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary 更新观看数
+         * @param {number} [id] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async apiBizMediaUpdateViewNumPost(id?: number, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
+            return BizMediaApiFp(configuration).apiBizMediaUpdateViewNumPost(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -1156,6 +1235,7 @@ export class BizMediaApi extends BaseAPI {
      * @param {number} [viewNum] 观看数
      * @param {string} [status] 状态
      * @param {boolean} [isPublish] 是否发布
+     * @param {boolean} [isHot] 热门?
      * @param {number} [page] 当前页码
      * @param {number} [pageSize] 页码容量
      * @param {string} [field] 排序字段
@@ -1165,8 +1245,8 @@ export class BizMediaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof BizMediaApi
      */
-    public async apiBizMediaListGet(searchKey?: string, name?: string, fileId?: number, url?: string, createUserName?: string, updateUserName?: string, catalog?: number, album?: number, desc?: string, tenantId?: number, suffix?: string, viewNum?: number, status?: string, isPublish?: boolean, page?: number, pageSize?: number, field?: string, order?: string, descStr?: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AdminResultListBizMediaOutput>> {
-        return BizMediaApiFp(this.configuration).apiBizMediaListGet(searchKey, name, fileId, url, createUserName, updateUserName, catalog, album, desc, tenantId, suffix, viewNum, status, isPublish, page, pageSize, field, order, descStr, options).then((request) => request(this.axios, this.basePath));
+    public async apiBizMediaListGet(searchKey?: string, name?: string, fileId?: number, url?: string, createUserName?: string, updateUserName?: string, catalog?: number, album?: number, desc?: string, tenantId?: number, suffix?: string, viewNum?: number, status?: string, isPublish?: boolean, isHot?: boolean, page?: number, pageSize?: number, field?: string, order?: string, descStr?: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<AdminResultListBizMediaOutput>> {
+        return BizMediaApiFp(this.configuration).apiBizMediaListGet(searchKey, name, fileId, url, createUserName, updateUserName, catalog, album, desc, tenantId, suffix, viewNum, status, isPublish, isHot, page, pageSize, field, order, descStr, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 
@@ -1189,6 +1269,17 @@ export class BizMediaApi extends BaseAPI {
      */
     public async apiBizMediaUpdatePost(body?: UpdateBizMediaInput, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
         return BizMediaApiFp(this.configuration).apiBizMediaUpdatePost(body, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * 
+     * @summary 更新观看数
+     * @param {number} [id] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BizMediaApi
+     */
+    public async apiBizMediaUpdateViewNumPost(id?: number, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
+        return BizMediaApiFp(this.configuration).apiBizMediaUpdateViewNumPost(id, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * 

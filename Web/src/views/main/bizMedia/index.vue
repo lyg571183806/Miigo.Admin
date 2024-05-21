@@ -61,15 +61,13 @@
           </template>
 
         </el-table-column>
-        <el-table-column prop="cover" label="封面" width="120" show-overflow-tooltip="">
+        <!-- <el-table-column prop="cover" label="封面" width="120" show-overflow-tooltip="">
           <template #default="scope">
             <el-image v-if="scope.row.cover" style="width: 60px; height: 60px" :src="scope.row.cover" :lazy="true"
               :hide-on-click-modal="true" :preview-src-list="[scope.row.cover]" :initial-index="0" fit="scale-down"
               preview-teleported="" />
-
           </template>
-
-        </el-table-column>
+        </el-table-column> -->
         <el-table-column prop="catalog" label="分类" width="120" show-overflow-tooltip="">
           <template #default="scope">
             <span>{{ scope.row.catalogName }}</span>
@@ -90,9 +88,11 @@
           <template #default="scope">
             <el-checkbox v-model="scope.row.isPublish" onclick="return false"></el-checkbox>
           </template>
-          <!-- <template #default="scope">
-            <span>{{ scope.row.IsPublish }}</span>
-          </template> -->
+        </el-table-column>
+        <el-table-column prop="isHot" label="热门？" width="80" align="center">
+          <template #default="scope">
+            <el-checkbox v-model="scope.row.isHot" onclick="return false"></el-checkbox>
+          </template>
         </el-table-column>
         <el-table-column label="操作" width="140" align="center" fixed="right" show-overflow-tooltip=""
           v-if="auth('bizMedia:edit') || auth('bizMedia:delete')">
@@ -291,7 +291,8 @@ const uploadFile = async () => {
           fileId:x.id,
           catalog:state.fileCatalog,
           album:state.fileAlbum,
-          isPublish:true
+          isPublish:true,
+          isHot:false
         };
         mediaList.push(album);        
       });

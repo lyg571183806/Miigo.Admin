@@ -23,8 +23,8 @@ public class BizMediaService : IDynamicApiController, ITransient
     [ApiDescriptionSettings(Name = "Page")]
     public async Task<SqlSugarPagedList<BizMediaOutput>> Page(BizMediaInput input)
     {
-        var query= _rep.AsQueryable()
-            .Where(u=>!u.IsDelete)
+        var query = _rep.AsQueryable()
+            .Where(u => !u.IsDelete)
             .WhereIF(!string.IsNullOrWhiteSpace(input.SearchKey), u =>
                 u.Name.Contains(input.SearchKey.Trim())
                 || u.Url.Contains(input.SearchKey.Trim())
@@ -33,39 +33,41 @@ public class BizMediaService : IDynamicApiController, ITransient
                 || u.Desc.Contains(input.SearchKey.Trim())
             )
             .WhereIF(!string.IsNullOrWhiteSpace(input.Name), u => u.Name.Contains(input.Name.Trim()))
-            .WhereIF(!string.IsNullOrWhiteSpace(input.Status), u => u.Status==input.Status.Trim())
-            .WhereIF(input.FileId>0, u => u.FileId == input.FileId)
+            .WhereIF(!string.IsNullOrWhiteSpace(input.Status), u => u.Status == input.Status.Trim())
+            .WhereIF(input.FileId > 0, u => u.FileId == input.FileId)
             .WhereIF(!string.IsNullOrWhiteSpace(input.Url), u => u.Url.Contains(input.Url.Trim()))
             .WhereIF(!string.IsNullOrWhiteSpace(input.CreateUserName), u => u.CreateUserName.Contains(input.CreateUserName.Trim()))
             .WhereIF(!string.IsNullOrWhiteSpace(input.UpdateUserName), u => u.UpdateUserName.Contains(input.UpdateUserName.Trim()))
-            .WhereIF(input.Catalog>0, u => u.Catalog == input.Catalog)
-            .WhereIF(input.Album>0, u => u.Album == input.Album)
+            .WhereIF(input.Catalog > 0, u => u.Catalog == input.Catalog)
+            .WhereIF(input.Album > 0, u => u.Album == input.Album)
             .WhereIF(input.IsPublish, u => u.IsPublish == input.IsPublish)
             .WhereIF(!string.IsNullOrWhiteSpace(input.Desc), u => u.Desc.Contains(input.Desc.Trim()))
             //处理外键和TreeSelector相关字段的连接
-            .LeftJoin<BizCatalog>((u, catalog) => u.Catalog == catalog.Id )
-            .LeftJoin<BizAlbum>((u, catalog, album) => u.Album == album.Id )
-            .Select((u, catalog, album)=> new BizMediaOutput{
-                Id = u.Id, 
-                Name = u.Name, 
-                FileId = u.FileId, 
-                Size = u.Size, 
-                Url = u.Url, 
-                CreateUserName = u.CreateUserName, 
-                Cover = u.Cover, 
-                UpdateUserName = u.UpdateUserName, 
-                Catalog = u.Catalog, 
+            .LeftJoin<BizCatalog>((u, catalog) => u.Catalog == catalog.Id)
+            .LeftJoin<BizAlbum>((u, catalog, album) => u.Album == album.Id)
+            .Select((u, catalog, album) => new BizMediaOutput
+            {
+                Id = u.Id,
+                Name = u.Name,
+                FileId = u.FileId,
+                Size = u.Size,
+                Url = u.Url,
+                CreateUserName = u.CreateUserName,
+                Cover = u.Cover,
+                UpdateUserName = u.UpdateUserName,
+                Catalog = u.Catalog,
                 CatalogName = catalog.Name,
-                Album = u.Album, 
+                Album = u.Album,
                 AlbumName = album.Name,
                 Desc = u.Desc,
                 CreateTime = u.CreateTime,
                 ViewNum = u.ViewNum,
                 Status = u.Status,
-                IsPublish = u.IsPublish
+                IsPublish = u.IsPublish,
+                IsHot = u.IsHot
             })
-            //.Mapper(c => c.UrlAttachment, c => c.Url)
-            //.Mapper(c => c.CoverAttachment, c => c.Cover)
+//.Mapper(c => c.UrlAttachment, c => c.Url)
+//.Mapper(c => c.CoverAttachment, c => c.Cover)
 ;
         query = query.OrderBuilder(input, "", "CreateTime");
         return await query.ToPagedListAsync(input.Page, input.PageSize);
@@ -99,9 +101,9 @@ public class BizMediaService : IDynamicApiController, ITransient
         //判断是否已经存在
         foreach (var item in entityList)
         {
-            var isExist = _rep.GetList(x=>x.FileId == item.FileId)
-                .WhereIF(!item.Catalog.IsNullOrEmpty(), x=> x.Catalog == item.Catalog)
-                .WhereIF(!item.Album.IsNullOrEmpty(),x=>x.Album == item.Album)
+            var isExist = _rep.GetList(x => x.FileId == item.FileId)
+                .WhereIF(!item.Catalog.IsNullOrEmpty(), x => x.Catalog == item.Catalog)
+                .WhereIF(!item.Album.IsNullOrEmpty(), x => x.Album == item.Album)
                 .Any();
             if (!isExist)
             {
@@ -216,9 +218,9 @@ public class BizMediaService : IDynamicApiController, ITransient
     [ApiDescriptionSettings(Name = "UploadUrl"), HttpPost]
     public async Task<FileOutput> UploadUrl([Required] IFormFile file)
     {
-            var service = App.GetService<SysFileService>();
-            return await service.UploadFile(file, "upload/Url"); 
-    } 
+        var service = App.GetService<SysFileService>();
+        return await service.UploadFile(file, "upload/Url");
+    }
     /// <summary>
     /// 上传封面
     /// </summary>
@@ -227,8 +229,8 @@ public class BizMediaService : IDynamicApiController, ITransient
     [ApiDescriptionSettings(Name = "UploadCover"), HttpPost]
     public async Task<FileOutput> UploadCover([Required] IFormFile file)
     {
-            var service = App.GetService<SysFileService>();
-            return await service.UploadFile(file, "upload/Cover"); 
+        var service = App.GetService<SysFileService>();
+        return await service.UploadFile(file, "upload/Cover");
     }
 
 
@@ -243,7 +245,7 @@ public class BizMediaService : IDynamicApiController, ITransient
     public async Task<SqlSugarPagedList<BizMediaOutput>> GetList(BizMediaInput input)
     {
         var query = _rep.AsQueryable()
-            .Where(u => !u.IsDelete)
+            .Where(u => !u.IsDelete && u.IsPublish)
             .WhereIF(!string.IsNullOrWhiteSpace(input.SearchKey), u =>
                 u.Name.Contains(input.SearchKey.Trim())
                 || u.Desc.Contains(input.SearchKey.Trim())
@@ -280,10 +282,32 @@ public class BizMediaService : IDynamicApiController, ITransient
 //.Mapper(c => c.UrlAttachment, c => c.Url)
 //.Mapper(c => c.CoverAttachment, c => c.Cover)
 ;
-        query = query.OrderBuilder(input, "", "CreateTime");
+        if (input.IsHot)
+        {
+            query = query
+                .OrderBy(u=>u.IsHot, OrderByType.Desc)
+                .OrderBy(u=>u.ViewNum, OrderByType.Desc)
+                .OrderBy(u=>u.CreateTime, OrderByType.Desc);
+        }
+        else
+        {
+            query = query.OrderBuilder(input, "", "CreateTime");
+        }
         return await query.ToPagedListAsync(input.Page, input.PageSize);
     }
 
+    /// <summary>
+    /// 更新观看数
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    [HttpPost]
+    [ApiDescriptionSettings(Name = "UpdateViewNum")]
+    [AllowAnonymous]
+    public async Task UpdateViewNum([FromQuery] long id)
+    {
+        var result = await _rep.UpdateAsync(x => new BizMedia() { ViewNum = x.ViewNum + 1 }, x => x.Id == id);
+    }
 
 
 }

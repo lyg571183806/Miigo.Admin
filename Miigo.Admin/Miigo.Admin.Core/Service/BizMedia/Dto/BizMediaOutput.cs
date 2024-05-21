@@ -88,6 +88,10 @@ public class BizMediaOutput
     /// 是否发布
     /// </summary>
     public bool IsPublish { get; set; }
+    /// <summary>
+    /// 热门
+    /// </summary>
+    public bool IsHot { get; set; }
 }
  
 
